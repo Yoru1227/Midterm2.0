@@ -40,7 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCheckCart = new System.Windows.Forms.Button();
+            this.lblLoginInfo = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -168,7 +170,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.lblLoginInfo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(188, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
@@ -191,6 +195,18 @@
             this.btnCheckCart.UseVisualStyleBackColor = false;
             this.btnCheckCart.Click += new System.EventHandler(this.btnCheckCart_Click);
             // 
+            // lblLoginInfo
+            // 
+            this.lblLoginInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblLoginInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblLoginInfo.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblLoginInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblLoginInfo.Name = "lblLoginInfo";
+            this.lblLoginInfo.Size = new System.Drawing.Size(596, 56);
+            this.lblLoginInfo.TabIndex = 4;
+            this.lblLoginInfo.Text = "登入資訊";
+            this.lblLoginInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -205,6 +221,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +240,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCheckCart;
+        private System.Windows.Forms.Label lblLoginInfo;
     }
 }
 

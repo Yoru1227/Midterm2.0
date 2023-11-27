@@ -26,14 +26,14 @@ namespace WindowsFormsAppMidterm2._0
         }
 
         private void FormDetail_Load(object sender, EventArgs e)
-        {
-            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
-            scsb.DataSource = @".";
-            scsb.InitialCatalog = "RestaurantDB";
-            scsb.IntegratedSecurity = true;
-            GlobalVar.strMyDBConnectionString = scsb.ConnectionString;
+        {            
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            Product result = (from product in mydb.Product where product.ID == selectID select product).FirstOrDefault();
+            Product result = (
+                from product 
+                in mydb.Product
+                where product.ID == selectID
+                select product
+                ).FirstOrDefault();
             name = result.name;
             lblName.Text = result.name;
             price = result.price;
