@@ -13,13 +13,13 @@ using Image = System.Drawing.Image;
 
 namespace WindowsFormsAppMidterm2._0
 {
-    public partial class Form1 : Form
+    public partial class FormOrder : Form
     {        
         List<int> listProductID = new List<int>();
         List<string> listProductName = new List<string>();
         List<int> listProductPrice = new List<int>();
         List<string> listProductCategory = new List<string>();
-        public Form1()
+        public FormOrder()
         {
             InitializeComponent();
         }
@@ -107,7 +107,6 @@ namespace WindowsFormsAppMidterm2._0
                 listProductPrice.Add(product.price);
                 listProductCategory.Add(product.category);
                 string fullDir = GlobalVar.imageDirWork + @"\" + product.picName;
-                Console.WriteLine(fullDir);
                 Image image = Image.FromFile(fullDir);
                 imageList.Images.Add(image);
             }
@@ -138,7 +137,7 @@ namespace WindowsFormsAppMidterm2._0
         {
             ListView listView = (ListView)sender;
             FormDetail formDetail = new FormDetail();
-            formDetail.selectID = (int)listView.SelectedItems[0].Tag;
+            formDetail.productID = (int)listView.SelectedItems[0].Tag;
             formDetail.ShowDialog();
         }
 

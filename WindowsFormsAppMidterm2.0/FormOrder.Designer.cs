@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppMidterm2._0
 {
-    partial class Form1
+    partial class FormOrder
     {
         /// <summary>
         /// 設計工具所需的變數。

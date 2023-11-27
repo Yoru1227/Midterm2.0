@@ -27,15 +27,27 @@ namespace WindowsFormsAppMidterm2._0
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             string account = txtAccount.Text;
             string password = txtPassword.Text;
-            IQueryable<Employee> search = from person
+            IQueryable<Employee> searchEmployee = from person
                                 in mydb.Employee
                                 where (person.account == account) && (person.password == password)
                                 select person;
-            Employee employee = search.FirstOrDefault();
-            if(search.Count() == 1)
+            IQueryable<Customer> searchCustomer = from person
+                                in mydb.Customer
+                                where (person.account == account) && (person.password == password)
+                                select person;
+            Employee employee = searchEmployee.FirstOrDefault();
+            Customer customer = searchCustomer.FirstOrDefault();
+            if(searchEmployee.Count() == 1)
             {
                 GlobalVar.ID = employee.ID;
                 GlobalVar.userName = employee.name;
+                GlobalVar.isLogin = true;
+                Close();
+            }
+            if(searchCustomer.Count() == 1)
+            {
+                GlobalVar.ID = customer.ID;
+                GlobalVar.userName = customer.name;
                 GlobalVar.isLogin = true;
                 Close();
             }

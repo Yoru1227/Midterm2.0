@@ -15,7 +15,7 @@ namespace WindowsFormsAppMidterm2._0
     
     public partial class FormDetail : Form
     {
-        public int selectID = 0;
+        public int productID = 0;
         string name = string.Empty;
         int price = 0;
         int totalPrice = 0;
@@ -31,7 +31,7 @@ namespace WindowsFormsAppMidterm2._0
             Product result = (
                 from product 
                 in mydb.Product
-                where product.ID == selectID
+                where product.ID == productID
                 select product
                 ).FirstOrDefault();
             name = result.name;
@@ -49,7 +49,7 @@ namespace WindowsFormsAppMidterm2._0
             item.ImageIndex = 0;
             item.Text = $"";
             item.Font = new Font("微軟正黑體", 12);
-            item.Tag = selectID;
+            item.Tag = productID;
             listViewImage.Items.Add(item);
         }
         // 減數量button
@@ -88,6 +88,27 @@ namespace WindowsFormsAppMidterm2._0
                 MessageBox.Show("杯數輸入有誤,請重新輸入");
                 tbAmount.Text = "1";
             }
+        }
+
+        private void btnAddCart_Click(object sender, EventArgs e)
+        {
+            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
+            Order order = new Order();
+            order.customerID = 0;
+            order.datetime = DateTime.Now;
+            order.productID = productID;
+            order.amount = amount;
+            order.totalPrice = totalPrice;
+            order.employeeID = 1;
+
+            mydb.Order.InsertOnSubmit(order);
+            mydb.SubmitChanges();
+            Console.WriteLine($"customerID : {order.customerID}\n" +
+                $"datetime : {order.datetime}\n" +
+                $"productID : {order.productID}\n" +
+                $"amount : {order.amount}\n" +
+                $"totalPrice : {order.totalPrice}\n" +
+                $"employeeID : {order.employeeID}");
         }
     }
 }
