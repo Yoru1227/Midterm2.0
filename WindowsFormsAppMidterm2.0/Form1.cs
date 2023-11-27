@@ -97,7 +97,7 @@ namespace WindowsFormsAppMidterm2._0
                 listProductName.Add(product.name);
                 listProductPrice.Add(product.price);
                 listProductCategory.Add(product.category);
-                string fullDir = GlobalVar.imageDirHome + @"\" + product.picName;
+                string fullDir = GlobalVar.imageDirWork + @"\" + product.picName;
                 Console.WriteLine(fullDir);
                 Image image = Image.FromFile(fullDir);
                 imageList.Images.Add(image);
@@ -123,6 +123,19 @@ namespace WindowsFormsAppMidterm2._0
                     listViewImage.Items.Add(item);
                 }
             }
+        }
+
+        private void listViewImage_ItemActivate(object sender, EventArgs e)
+        {
+            ListView listView = (ListView)sender;
+            FormDetail formDetail = new FormDetail();
+            formDetail.selectID = (int)listView.SelectedItems[0].Tag;
+            formDetail.ShowDialog();
+        }
+
+        private void btnCheckCart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
