@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCheckCart = new System.Windows.Forms.Button();
             this.btnSide = new System.Windows.Forms.Button();
             this.btnSoup = new System.Windows.Forms.Button();
             this.btnNoodles = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCheckCart = new System.Windows.Forms.Button();
             this.lblLoginInfo = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,6 +60,23 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(188, 461);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnCheckCart
+            // 
+            this.btnCheckCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.btnCheckCart.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCheckCart.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCheckCart.FlatAppearance.BorderSize = 0;
+            this.btnCheckCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckCart.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCheckCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckCart.Location = new System.Drawing.Point(0, 410);
+            this.btnCheckCart.Name = "btnCheckCart";
+            this.btnCheckCart.Size = new System.Drawing.Size(188, 51);
+            this.btnCheckCart.TabIndex = 3;
+            this.btnCheckCart.Text = "購物車";
+            this.btnCheckCart.UseVisualStyleBackColor = false;
+            this.btnCheckCart.Click += new System.EventHandler(this.btnCheckCart_Click);
             // 
             // btnSide
             // 
@@ -144,7 +161,7 @@
             this.listViewImage.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewImage.HideSelection = false;
             this.listViewImage.Location = new System.Drawing.Point(188, 55);
-            this.listViewImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewImage.Margin = new System.Windows.Forms.Padding(2);
             this.listViewImage.Name = "listViewImage";
             this.listViewImage.Size = new System.Drawing.Size(596, 406);
             this.listViewImage.TabIndex = 1;
@@ -174,26 +191,10 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(188, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(596, 56);
             this.panel1.TabIndex = 3;
-            // 
-            // btnCheckCart
-            // 
-            this.btnCheckCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.btnCheckCart.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCheckCart.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCheckCart.FlatAppearance.BorderSize = 0;
-            this.btnCheckCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckCart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCheckCart.Location = new System.Drawing.Point(0, 410);
-            this.btnCheckCart.Name = "btnCheckCart";
-            this.btnCheckCart.Size = new System.Drawing.Size(188, 51);
-            this.btnCheckCart.TabIndex = 3;
-            this.btnCheckCart.Text = "購物車";
-            this.btnCheckCart.UseVisualStyleBackColor = false;
-            this.btnCheckCart.Click += new System.EventHandler(this.btnCheckCart_Click);
             // 
             // lblLoginInfo
             // 
@@ -207,7 +208,7 @@
             this.lblLoginInfo.Text = "登入資訊";
             this.lblLoginInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Form1
+            // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,7 +218,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listViewImage);
             this.Controls.Add(this.panelMenu);
-            this.Name = "Form1";
+            this.Name = "FormOrder";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenu.ResumeLayout(false);

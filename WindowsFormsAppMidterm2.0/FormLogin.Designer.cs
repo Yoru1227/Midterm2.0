@@ -119,6 +119,7 @@
             this.btnEnroll.TabIndex = 8;
             this.btnEnroll.Text = "註冊";
             this.btnEnroll.UseVisualStyleBackColor = false;
+            this.btnEnroll.Click += new System.EventHandler(this.btnEnroll_Click);
             // 
             // btnForgetPassword
             // 

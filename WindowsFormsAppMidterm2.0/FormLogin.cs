@@ -51,6 +51,12 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.isLogin = true;
                 Close();
             }
+            if(searchEmployee.Count() + searchCustomer.Count() == 0)
+            {
+                MessageBox.Show("登入資訊有誤, 請重新輸入");
+                txtAccount.Text = "";
+                txtPassword.Text = "";
+            }
         }
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -63,6 +69,12 @@ namespace WindowsFormsAppMidterm2._0
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnEnroll_Click(object sender, EventArgs e)
+        {
+            FormEnroll formEnroll = new FormEnroll();
+            formEnroll.ShowDialog();
         }
     }
 }

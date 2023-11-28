@@ -143,7 +143,8 @@ namespace WindowsFormsAppMidterm2._0
 
         private void btnCheckCart_Click(object sender, EventArgs e)
         {
-
+            FormCart formCart = new FormCart();
+            formCart.ShowDialog();
         }
     }
 }
