@@ -23,12 +23,15 @@ namespace WindowsFormsAppMidterm2._0
             lblTitle.Text = $"{GlobalVar.userName}的購物車";
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 查詢Order資料表與customerID有關的資料
-            ShowListView();
-            btnPay.Text = $"結帳 :\n{totalPrice}元";
+            ShowListView();                    
         }
         void ShowListView()
         {
+            // 將總價重置
+            totalPrice = 0;
+            // 將listViewOrderList移除所有項目
             listViewOrderList.Items.Clear();
+            // 資料庫連線
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Order> orderQuery = from order in mydb.Order where order.customerID == GlobalVar.ID select order;
             foreach (Order order in orderQuery)
@@ -42,14 +45,15 @@ namespace WindowsFormsAppMidterm2._0
                 listViewOrderList.Items.Add(item);
                 totalPrice += order.totalPrice;
                 Console.WriteLine($"orderID : {order.ID}" +
-                $"customerID : {order.customerID}\n" +
-                $"datetime : {order.datetime}\n" +
-                $"productID : {order.productID}\n" +
-                $"amount : {order.amount}\n" +
-                $"totalPrice : {order.totalPrice}\n" +
-                $"employeeID : {order.employeeID}\n" +
-                $"comment : {order.comment}");
+                    $"customerID : {order.customerID}\n" +
+                    $"datetime : {order.datetime}\n" +
+                    $"productID : {order.productID}\n" +
+                    $"amount : {order.amount}\n" +
+                    $"totalPrice : {order.totalPrice}\n" +
+                    $"employeeID : {order.employeeID}\n" +
+                    $"comment : {order.comment}");
             }
+            btnPay.Text = $"結帳 :\n{totalPrice}元";
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -59,7 +63,7 @@ namespace WindowsFormsAppMidterm2._0
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
             // 當listViewOrderList被選中item
-            if (listViewOrderList.SelectedItems[0].Index >= 0)
+            if (listViewOrderList.SelectedItems.Count > 0)
             {
                 int orderID = (int)listViewOrderList.SelectedItems[0].Tag;
                 RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
@@ -68,11 +72,20 @@ namespace WindowsFormsAppMidterm2._0
                                           where order.ID == orderID
                                           select order;
                 Order selectedOrder = query.FirstOrDefault();
+                Console.WriteLine($"orderID : {selectedOrder.ID}" +
+                $"customerID : {selectedOrder.customerID}\n" +
+                $"datetime : {selectedOrder.datetime}\n" +
+                $"productID : {selectedOrder.productID}\n" +
+                $"amount : {selectedOrder.amount}\n" +
+                $"totalPrice : {selectedOrder.totalPrice}\n" +
+                $"employeeID : {selectedOrder.employeeID}\n" +
+                $"comment : {selectedOrder.comment}");
                 // selectedOrder不為null則刪除selectedOrder
-                if(selectedOrder != null)
+                if (selectedOrder != null)
                 {
                     mydb.Order.DeleteOnSubmit(selectedOrder);
                     mydb.SubmitChanges();
+                    totalPrice -= selectedOrder.totalPrice;
                     ShowListView();
                 }
             }           

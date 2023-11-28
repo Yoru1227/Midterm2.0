@@ -16,10 +16,10 @@ namespace WindowsFormsAppMidterm2._0
     public partial class FormDetail : Form
     {
         public int productID = 0;
-        string name = string.Empty;
         int price = 0;
         int totalPrice = 0;
         int amount = 0;
+        // 檢查txtComment是否有文字
         bool textboxHasText = false;
         public FormDetail()
         {
@@ -28,20 +28,24 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormDetail_Load(object sender, EventArgs e)
         {            
+            // 載入資料庫
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
+            // 查詢product
             Product result = (
                 from product 
                 in mydb.Product
                 where product.ID == productID
                 select product
                 ).FirstOrDefault();
-            name = result.name;
+            // 預設值
             lblName.Text = result.name;
             price = result.price;
-            lblPrice.Text = $"{result.price.ToString()}元";
+            totalPrice = result.price;
+            amount = 1;
+            lblPrice.Text = $"{result.price}元";
             lblTotalPrice.Text = $"{result.price}元";
             // 載入圖片
-            Image image = Image.FromFile(GlobalVar.imageDirWork + @"\" + result.picName);
+            Image image = Image.FromFile(GlobalVar.imageDirHome + @"\" + result.picName);
             imageList.Images.Add(image);
             listViewImage.View = View.LargeIcon;
             imageList.ImageSize = new Size(120, 120);
@@ -56,38 +60,38 @@ namespace WindowsFormsAppMidterm2._0
         // 減數量button
         private void btnSubstract_Click(object sender, EventArgs e)
         {
-            bool success = int.TryParse(tbAmount.Text, out amount);
+            bool success = int.TryParse(txtAmount.Text, out amount);
             if (success)
             {
                 if (amount > 1)
                 {
                     amount--;
                     totalPrice = amount * price;
-                    tbAmount.Text = amount.ToString();
+                    txtAmount.Text = amount.ToString();
                     lblTotalPrice.Text = totalPrice.ToString() + "元";
                 }
             }
             else
             {
                 MessageBox.Show("數量輸入有誤,請重新輸入");
-                tbAmount.Text = "1";
+                txtAmount.Text = "1";
             }
         }
         // 加數量button
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool success = int.TryParse(tbAmount.Text, out amount);
+            bool success = int.TryParse(txtAmount.Text, out amount);
             if (success)
             {
                 amount++;
                 totalPrice = amount * price;
-                tbAmount.Text = amount.ToString();
+                txtAmount.Text = amount.ToString();
                 lblTotalPrice.Text = totalPrice.ToString() + "元";
             }
             else
             {
                 MessageBox.Show("杯數輸入有誤,請重新輸入");
-                tbAmount.Text = "1";
+                txtAmount.Text = "1";
             }
         }
 
@@ -101,11 +105,12 @@ namespace WindowsFormsAppMidterm2._0
             order.amount = amount;
             order.totalPrice = totalPrice;
             order.employeeID = 1;
+            // lblComment有文字就輸入資料, 否則輸入空字串
             if (textboxHasText == true)
                 order.comment = txtComment.Text;
             else
                 order.comment = "";
-
+            // insert into DB
             mydb.Order.InsertOnSubmit(order);
             mydb.SubmitChanges();
             Console.WriteLine($"customerID : {order.customerID}\n" +
