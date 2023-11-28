@@ -31,16 +31,16 @@ namespace WindowsFormsAppMidterm2._0
             scsb.InitialCatalog = "RestaurantDB";
             scsb.IntegratedSecurity = true;
             GlobalVar.strMyDBConnectionString = scsb.ConnectionString;
-            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            if(GlobalVar.isLogin == false)
-            {
-                FormLogin formLogin = new FormLogin();
-                formLogin.ShowDialog();
-            }
+            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();           
 
-            lblLoginInfo.Text = $"{GlobalVar.userName}, 您好";
+            lblTitle.Text = $"{GlobalVar.userName}, 您好";
             ReadPics();
-            
+            // 預設顯示飯類
+            string category = "飯類";
+            DisableButton();
+            ActivateButton(btnRice);
+            DisplayListView(category);
+
         }
         // 取消勾選按鈕, 改變前後景顏色
         void DisableButton()

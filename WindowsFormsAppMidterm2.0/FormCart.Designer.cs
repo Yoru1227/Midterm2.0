@@ -31,7 +31,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.listViewOrderList = new System.Windows.Forms.ListView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDeleteOrder = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,18 +73,74 @@
             this.listViewOrderList.UseCompatibleStateImageBehavior = false;
             this.listViewOrderList.View = System.Windows.Forms.View.List;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnDeleteOrder);
+            this.panel2.Controls.Add(this.btnPay);
+            this.panel2.Controls.Add(this.btnBack);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.panel2.Location = new System.Drawing.Point(0, 531);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(593, 79);
+            this.panel2.TabIndex = 2;
+            // 
+            // btnDeleteOrder
+            // 
+            this.btnDeleteOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.btnDeleteOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteOrder.FlatAppearance.BorderSize = 0;
+            this.btnDeleteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteOrder.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnDeleteOrder.Location = new System.Drawing.Point(178, 0);
+            this.btnDeleteOrder.Name = "btnDeleteOrder";
+            this.btnDeleteOrder.Size = new System.Drawing.Size(237, 79);
+            this.btnDeleteOrder.TabIndex = 2;
+            this.btnDeleteOrder.Text = "刪除訂單";
+            this.btnDeleteOrder.UseVisualStyleBackColor = false;
+            this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.btnPay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnPay.Location = new System.Drawing.Point(415, 0);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(178, 79);
+            this.btnPay.TabIndex = 1;
+            this.btnPay.Text = "結帳";
+            this.btnPay.UseVisualStyleBackColor = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(178, 79);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "返回";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // FormCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(593, 610);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.listViewOrderList);
             this.Controls.Add(this.panel1);
             this.Name = "FormCart";
             this.Text = "FormCart";
             this.Load += new System.EventHandler(this.FormCart_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -89,5 +150,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ListView listViewOrderList;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnDeleteOrder;
+        private System.Windows.Forms.Button btnPay;
     }
 }

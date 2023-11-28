@@ -42,14 +42,18 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.ID = employee.ID;
                 GlobalVar.userName = employee.name;
                 GlobalVar.isLogin = true;
-                Close();
+                Hide();
             }
             if(searchCustomer.Count() == 1)
             {
                 GlobalVar.ID = customer.ID;
                 GlobalVar.userName = customer.name;
                 GlobalVar.isLogin = true;
-                Close();
+                Hide();
+                FormOrder formOrder = new FormOrder();
+                formOrder.ShowDialog();
+                
+
             }
             if(searchEmployee.Count() + searchCustomer.Count() == 0)
             {
@@ -58,18 +62,18 @@ namespace WindowsFormsAppMidterm2._0
                 txtPassword.Text = "";
             }
         }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (GlobalVar.isLogin == true)
-            {
-                e.Cancel = false;
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        
+        //private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    if (GlobalVar.isLogin == true)
+        //    {
+        //        e.Cancel = false;
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = true;
+        //    }
+        //}        
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
