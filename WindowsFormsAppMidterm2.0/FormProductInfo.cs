@@ -19,6 +19,7 @@ namespace WindowsFormsAppMidterm2._0
         string productCategory = "";
         bool isInStock = false;
         string productPicName = "";
+        bool isIDEmpty = true;
         bool isNameEmpty = true;
         bool isPriceEmpty = true;
         bool isCategoryEmpty = true;
@@ -72,11 +73,20 @@ namespace WindowsFormsAppMidterm2._0
         // 多重欄位查詢
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Product> query = from product
                                         in mydb.Product
                                         select product;
+            // 若ID非空字串
+            if(isIDEmpty == false)
+            {
+                query = from product
+                        in query
+                        where product.ID == productID
+                        select product;
+            }
             // 若名稱非空字串
             if(isNameEmpty == false)
             {
@@ -109,10 +119,17 @@ namespace WindowsFormsAppMidterm2._0
                         where product.isInStock == isInStock
                         select product;
             }
-            foreach(Product product in query)
+            if(query.Count() == 0)
             {
-                listViewDataInfo.Items.Add($"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}");
+                MessageBox.Show("查無資料");
             }
+            else
+            {
+                foreach (Product product in query)
+                {
+                    listViewDataInfo.Items.Add($"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}");
+                }
+            }           
         }
         // 更新product資料表
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -146,7 +163,7 @@ namespace WindowsFormsAppMidterm2._0
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以ID刪除
-            if(productID > 0)
+            if(isIDEmpty == false)
             {
                 Product selectedProduct = (from product
                                            in mydb.Product
@@ -165,7 +182,7 @@ namespace WindowsFormsAppMidterm2._0
                 }    
             }
             // 以名稱刪除
-            else if(productName != "")
+            else if(isNameEmpty == false)
             {
                 Product selectedProduct = (from product
                                            in mydb.Product
@@ -201,6 +218,11 @@ namespace WindowsFormsAppMidterm2._0
                 productPrice = result;
             productPicName = txtFileName.Text;
             // 檢查各textbox是否有輸入字串
+            if (productID == 0)
+                isIDEmpty = true;
+            else
+                isIDEmpty = false;
+
             if (productName == "")
                 isNameEmpty = true;
             else

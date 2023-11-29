@@ -20,6 +20,7 @@ namespace WindowsFormsAppMidterm2._0
         string customerAddress = "";
         string customerAccount = "";
         string customerPassword = "";
+        bool isIDEmpty = true;
         bool isNameEmpty = true;
         bool isGenderEmpty = true;
         bool isPhoneEmpty = true;
@@ -52,6 +53,11 @@ namespace WindowsFormsAppMidterm2._0
             customerAccount = txtAccount.Text;
             customerPassword = txtPassword.Text;
             // 檢查各textbox是否有輸入字串
+            if(customerID == 0)
+                isIDEmpty = true;    
+            else
+                isIDEmpty = false;
+
             if(customerName == "")
                 isNameEmpty = true;
             else
@@ -171,6 +177,14 @@ namespace WindowsFormsAppMidterm2._0
             IQueryable<Customer> query = from customer
                                          in mydb.Customer
                                          select customer;
+            // 若ID非空字串
+            if(isIDEmpty == false)
+            {
+                query = from customer
+                        in query
+                        where customer.ID == customerID
+                        select customer;
+            }
             // 若名字非空字串
             if (isNameEmpty == false)
             {
@@ -227,14 +241,22 @@ namespace WindowsFormsAppMidterm2._0
                         where customer.password == customerPassword
                         select customer;
             }
-            foreach(Customer customer in query)
+            if(query.Count() == 0)
             {
-                listViewDataInfo.Items.Add($"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}");
+                MessageBox.Show("查無資料");
             }
+            else
+            {
+                foreach (Customer customer in query)
+                {
+                    listViewDataInfo.Items.Add($"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}");
+                }
+            }           
         }
         // 更新customer資料表, 依ID更新
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Customer selectedCustomer = (from customer
@@ -268,7 +290,7 @@ namespace WindowsFormsAppMidterm2._0
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以ID刪除
-            if(customerID > 0)
+            if(isIDEmpty == false)
             {
                 Customer selectedCustomer = (from customer
                                              in mydb.Customer
@@ -287,7 +309,7 @@ namespace WindowsFormsAppMidterm2._0
                 }
             }
             // 以名字刪除
-            else if(customerName != "")
+            else if(isNameEmpty == false)
             {
                 Customer selectedCustomer = (from customer
                                              in mydb.Customer
