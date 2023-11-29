@@ -16,5 +16,35 @@ namespace WindowsFormsAppMidterm2._0
         {
             InitializeComponent();
         }
+
+        private void FormOrderInfo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewDataInfo_ItemActivate(object sender, EventArgs e)
+        {
+
+        }
     }
 }

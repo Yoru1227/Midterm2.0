@@ -29,7 +29,10 @@ namespace WindowsFormsAppMidterm2._0
         {
             InitializeComponent();
         }
+        private void FormProductInfo_Load(object sender, EventArgs e)
+        {
 
+        }
         private void btnInsert_Click(object sender, EventArgs e)
         {
             bool isExist = false;
@@ -127,7 +130,10 @@ namespace WindowsFormsAppMidterm2._0
             {
                 foreach (Product product in query)
                 {
-                    listViewDataInfo.Items.Add($"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}");
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = product.ID;
+                    item.Text = $"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
+                    listViewDataInfo.Items.Add(item);
                 }
             }           
         }
@@ -249,6 +255,27 @@ namespace WindowsFormsAppMidterm2._0
             txtCategory.Text = "";
             txtIsInStock.Text = "";
             txtFileName.Text = "";
+        }
+        // 當listViewDataInfo的Item被點擊時, 顯示其資料在所有textbox
+        private void listViewDataInfo_ItemActivate(object sender, EventArgs e)
+        {           
+            if(listViewDataInfo.SelectedItems.Count > 0)
+            {
+                RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
+                int selectedProductID = (int)listViewDataInfo.SelectedItems[0].Tag;
+                Product selectedProduct = (from product
+                                          in mydb.Product
+                                          where product.ID == selectedProductID
+                                          select product)
+                                          .FirstOrDefault();
+                // 將資料顯示在textbox
+                txtID.Text = selectedProduct.ID.ToString();
+                txtName.Text = selectedProduct.name;
+                txtPrice.Text = selectedProduct.price.ToString();
+                txtCategory.Text = selectedProduct.category.ToString();
+                txtIsInStock.Text = (selectedProduct.isInStock ? "有存貨" : "缺貨");
+                txtFileName.Text = selectedProduct.picName;               
+            }
         }
     }
 }
