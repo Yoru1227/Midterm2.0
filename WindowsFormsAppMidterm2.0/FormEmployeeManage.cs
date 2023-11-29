@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppMidterm2._0
 {
-    public partial class FormSystemManage : Form
+    public partial class FormEmployeeManage : Form
     {
-        public FormSystemManage()
+        public FormEmployeeManage()
         {
             InitializeComponent();
         }

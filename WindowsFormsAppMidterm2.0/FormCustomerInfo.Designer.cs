@@ -55,7 +55,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnSearch);
@@ -151,9 +151,9 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtName.Location = new System.Drawing.Point(247, 201);
+            this.txtName.Location = new System.Drawing.Point(239, 201);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(122, 33);
+            this.txtName.Size = new System.Drawing.Size(235, 33);
             this.txtName.TabIndex = 8;
             // 
             // label2
@@ -161,7 +161,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(192, 206);
+            this.label2.Location = new System.Drawing.Point(185, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 24);
             this.label2.TabIndex = 7;
@@ -170,7 +170,7 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPhone.Location = new System.Drawing.Point(73, 256);
+            this.txtPhone.Location = new System.Drawing.Point(73, 253);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(179, 33);
             this.txtPhone.TabIndex = 10;
@@ -180,7 +180,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(12, 261);
+            this.label3.Location = new System.Drawing.Point(12, 258);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 24);
             this.label3.TabIndex = 9;
@@ -191,7 +191,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(399, 206);
+            this.label4.Location = new System.Drawing.Point(485, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 24);
             this.label4.TabIndex = 11;
@@ -200,7 +200,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtEmail.Location = new System.Drawing.Point(328, 256);
+            this.txtEmail.Location = new System.Drawing.Point(328, 253);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(293, 33);
             this.txtEmail.TabIndex = 13;
@@ -210,7 +210,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(264, 261);
+            this.label5.Location = new System.Drawing.Point(261, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 24);
             this.label5.TabIndex = 12;
@@ -221,7 +221,7 @@
             this.txtAccount.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAccount.Location = new System.Drawing.Point(73, 358);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(179, 33);
+            this.txtAccount.Size = new System.Drawing.Size(238, 33);
             this.txtAccount.TabIndex = 15;
             // 
             // label6
@@ -238,9 +238,9 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPassword.Location = new System.Drawing.Point(328, 358);
+            this.txtPassword.Location = new System.Drawing.Point(378, 358);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(179, 33);
+            this.txtPassword.Size = new System.Drawing.Size(243, 33);
             this.txtPassword.TabIndex = 17;
             // 
             // label7
@@ -248,7 +248,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(267, 363);
+            this.label7.Location = new System.Drawing.Point(317, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 24);
             this.label7.TabIndex = 16;
@@ -261,7 +261,7 @@
             this.comboGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.comboGender.Location = new System.Drawing.Point(453, 202);
+            this.comboGender.Location = new System.Drawing.Point(539, 202);
             this.comboGender.Name = "comboGender";
             this.comboGender.Size = new System.Drawing.Size(82, 32);
             this.comboGender.TabIndex = 18;
@@ -269,7 +269,7 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtAddress.Location = new System.Drawing.Point(73, 307);
+            this.txtAddress.Location = new System.Drawing.Point(73, 306);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(548, 33);
             this.txtAddress.TabIndex = 20;
@@ -279,7 +279,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(12, 312);
+            this.label8.Location = new System.Drawing.Point(12, 311);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 24);
             this.label8.TabIndex = 19;
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(633, 456);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label8);

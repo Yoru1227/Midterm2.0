@@ -87,6 +87,7 @@ namespace WindowsFormsAppMidterm2._0
             else
                 isPasswordEmpty = false;
             // 清空所有textbox
+            txtID.Text = "";
             txtName.Text = "";
             comboGender.Text = "";
             txtPhone.Text = "";
@@ -100,7 +101,7 @@ namespace WindowsFormsAppMidterm2._0
         {
             bool isEnrolled = false;
             ReadTextBox();
-            // 檢查所有欄位
+            // 檢查所有欄位是否有字串
             if(isNameEmpty || isGenderEmpty || isPhoneEmpty || isEmailEmpty || isAddressEmpty || isAccountEmpty || isPasswordEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
@@ -158,11 +159,11 @@ namespace WindowsFormsAppMidterm2._0
                     $"email : {customer.email}\n" +
                     $"account : {customer.account}\n" +
                     $"password : {customer.password}");
-                MessageBox.Show("Insert成功!");
-                Close();
+                MessageBox.Show("Insert成功");
             }
         }
         // 查詢customer資料表
+        // 多重欄位查詢
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ReadTextBox();
@@ -231,7 +232,7 @@ namespace WindowsFormsAppMidterm2._0
                 listViewDataInfo.Items.Add($"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}");
             }
         }
-        // 更新customer資料表
+        // 更新customer資料表, 依ID更新
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             ReadTextBox();
@@ -242,8 +243,7 @@ namespace WindowsFormsAppMidterm2._0
                                          select customer)
                                          .FirstOrDefault();
             if (selectedCustomer != null)
-            {
-                
+            {                
                 if(isNameEmpty == false)
                     selectedCustomer.name = customerName;
                 if(isGenderEmpty == false)

@@ -51,7 +51,7 @@
             this.panelMenu.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(187, 574);
+            this.panelMenu.Size = new System.Drawing.Size(187, 523);
             this.panelMenu.TabIndex = 0;
             // 
             // btnSystemManage
@@ -140,7 +140,7 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(187, 56);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(632, 518);
+            this.panelChildForm.Size = new System.Drawing.Size(632, 467);
             this.panelChildForm.TabIndex = 7;
             // 
             // FormManage
@@ -148,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(819, 574);
+            this.ClientSize = new System.Drawing.Size(819, 523);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelMenu);

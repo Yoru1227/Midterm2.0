@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppMidterm2._0
 {
-    partial class FormEmployeeInfo
+    partial class FormEmployeeManage
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 401);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(633, 55);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // btnDelete
             // 
@@ -93,14 +93,14 @@
             this.btnInsert.Text = "新增";
             this.btnInsert.UseVisualStyleBackColor = true;
             // 
-            // FormEmployeeInfo
+            // FormSystemManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 456);
             this.Controls.Add(this.panel1);
-            this.Name = "FormEmployeeInfo";
-            this.Text = "FormEmployeeInfo";
+            this.Name = "FormSystemManage";
+            this.Text = "FormSystemManage";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
