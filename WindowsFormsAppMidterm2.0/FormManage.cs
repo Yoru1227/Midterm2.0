@@ -12,6 +12,7 @@ namespace WindowsFormsAppMidterm2._0
 {
     public partial class FormManage : Form
     {
+        private Form activeForm;
         public FormManage()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormManage_Load(object sender, EventArgs e)
         {
-
+            DisableButton();
+            OpenChildForm(new FormCustomerInfo(), btnMemberInfoManage);
         }
         // 取消勾選按鈕, 改變前後景顏色
         void DisableButton()
@@ -30,7 +32,6 @@ namespace WindowsFormsAppMidterm2._0
             {
                 if (button.GetType() == typeof(Button))
                 {
-                    Button temp = (Button)button;
                     button.BackColor = bgColor;
                     button.ForeColor = foreColor;
                 }
@@ -47,22 +48,45 @@ namespace WindowsFormsAppMidterm2._0
 
         private void btnMemberInfoManage_Click(object sender, EventArgs e)
         {
-
+            DisableButton();
+            OpenChildForm(new FormCustomerInfo(), sender);
+            //ActivateButton((Button)sender);
         }
 
         private void btnProductInfoManage_Click(object sender, EventArgs e)
         {
-
+            DisableButton();
+            //ActivateButton((Button)sender);
         }
 
         private void btnOrderManage_Click(object sender, EventArgs e)
         {
-
+            DisableButton();
+            //ActivateButton((Button)sender);
         }
 
         private void btnSystemManage_Click(object sender, EventArgs e)
         {
-
+            DisableButton();
+            //ActivateButton((Button)sender);
+        }
+        // 開啟子表單
+        private void OpenChildForm(Form childForm, object btnSender)
+        {
+            // 若childForm已開啟, 將activeForm關掉
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+            ActivateButton((Button)btnSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

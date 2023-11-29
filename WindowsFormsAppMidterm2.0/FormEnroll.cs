@@ -73,27 +73,63 @@ namespace WindowsFormsAppMidterm2._0
             }
             else
             {
-                RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-                Customer customer = new Customer();
-                customer.name = name;
-                customer.gender = gender;
-                customer.phone = phone;
-                customer.address = address;
-                customer.email = email;
-                customer.account = account;
-                customer.password = password;
+                RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();               
+                bool isEnrolled = false;
+                IQueryable<Customer> search = from Customer
+                                     in mydb.Customer
+                                     where Customer.phone == phone
+                                     select Customer;
+                if (search.Count() > 0)
+                {
+                    MessageBox.Show("電話已被註冊, 請重新輸入");
+                    txtPhone.Text = "";
+                    isEnrolled = true;
+                }
+                // 檢查email是否已被註冊
+                search = from Customer
+                         in mydb.Customer
+                         where Customer.email == email
+                         select Customer;
+                if (search.Count() > 0)
+                {
+                    MessageBox.Show("email已被註冊, 請重新輸入");
+                    txtEmail.Text = "";
+                    isEnrolled = true;
+                }
+                // 檢查帳號是否已被註冊
+                search = from Customer
+                         in mydb.Customer
+                         where Customer.account == account
+                         select Customer;
+                if (search.Count() > 0)
+                {
+                    MessageBox.Show("帳號已被註冊, 請重新輸入");
+                    txtAccount.Text = "";
+                    isEnrolled = true;
+                }
 
-                mydb.Customer.InsertOnSubmit(customer);
-                mydb.SubmitChanges();
-                Console.WriteLine($"Name : {customer.name}\n" +
-                    $"gender : {customer.gender}\n" +
-                    $"phone : {customer.phone}\n" +
-                    $"address : {customer.address}\n" +
-                    $"email : {customer.email}\n" +
-                    $"account : {customer.account}\n" +
-                    $"password : {customer.password}");
-                MessageBox.Show("註冊成功!");
-                Close();
+                if(isEnrolled == false)
+                {
+                    Customer customer = new Customer();
+                    customer.name = name;
+                    customer.gender = gender;
+                    customer.phone = phone;
+                    customer.address = address;
+                    customer.email = email;
+                    customer.account = account;
+                    customer.password = password;
+                    mydb.Customer.InsertOnSubmit(customer);
+                    mydb.SubmitChanges();
+                    Console.WriteLine($"Name : {customer.name}\n" +
+                        $"gender : {customer.gender}\n" +
+                        $"phone : {customer.phone}\n" +
+                        $"address : {customer.address}\n" +
+                        $"email : {customer.email}\n" +
+                        $"account : {customer.account}\n" +
+                        $"password : {customer.password}");
+                    MessageBox.Show("註冊成功!");
+                    Close();
+                }
             }            
         }
     }

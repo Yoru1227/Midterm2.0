@@ -43,6 +43,8 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.userName = employee.name;
                 GlobalVar.isLogin = true;
                 Hide();
+                FormManage formManage = new FormManage();
+                formManage.ShowDialog();
             }
             if(searchCustomer.Count() == 1)
             {

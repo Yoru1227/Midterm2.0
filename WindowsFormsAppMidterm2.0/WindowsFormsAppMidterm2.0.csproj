@@ -53,6 +53,12 @@
     <Compile Include="FormCart.Designer.cs">
       <DependentUpon>FormCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEmployeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployeeInfo.Designer.cs">
+      <DependentUpon>FormEmployeeInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEnroll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="FormManage.Designer.cs">
       <DependentUpon>FormManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerInfo.Designer.cs">
+      <DependentUpon>FormCustomerInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOrder.cs">
       <SubType>Form</SubType>
@@ -83,6 +95,18 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderInfo.Designer.cs">
+      <DependentUpon>FormOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystemManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystemManage.Designer.cs">
+      <DependentUpon>FormSystemManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,11 +121,17 @@
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployeeInfo.resx">
+      <DependentUpon>FormEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEnroll.resx">
       <DependentUpon>FormEnroll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormManage.resx">
       <DependentUpon>FormManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerInfo.resx">
+      <DependentUpon>FormCustomerInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
@@ -111,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderInfo.resx">
+      <DependentUpon>FormOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystemManage.resx">
+      <DependentUpon>FormSystemManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

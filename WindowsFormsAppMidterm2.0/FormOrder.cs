@@ -30,7 +30,7 @@ namespace WindowsFormsAppMidterm2._0
             GlobalVar.strMyDBConnectionString = scsb.ConnectionString;
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();           
 
-            lblTitle.Text = $"{GlobalVar.userName}, 您好";
+            lblLoginInfo.Text = $"{GlobalVar.userName}, 您好";
             ReadPics();
             // 預設顯示飯類
             string category = "飯類";
@@ -48,7 +48,6 @@ namespace WindowsFormsAppMidterm2._0
             {
                 if(button.GetType() == typeof(Button))
                 {
-                    Button temp = (Button)button;
                     button.BackColor = bgColor;
                     button.ForeColor = foreColor;
                 }
@@ -100,7 +99,7 @@ namespace WindowsFormsAppMidterm2._0
             foreach (Product product in result)
             {
                 // 從路徑中讀取圖檔
-                string fullDir = GlobalVar.imageDirHome + @"\" + product.picName;
+                string fullDir = GlobalVar.imageDirWork + @"\" + product.picName;
                 Image image = Image.FromFile(fullDir);
                 imageList.Images.Add(image);
             }
