@@ -118,6 +118,7 @@
             // 
             // listViewDataInfo
             // 
+            this.listViewDataInfo.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewDataInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewDataInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.listViewDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -128,6 +129,7 @@
             this.listViewDataInfo.TabIndex = 4;
             this.listViewDataInfo.UseCompatibleStateImageBehavior = false;
             this.listViewDataInfo.View = System.Windows.Forms.View.List;
+            this.listViewDataInfo.ItemActivate += new System.EventHandler(this.listViewDataInfo_ItemActivate);
             // 
             // label1
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Principal;
@@ -81,9 +82,9 @@ namespace WindowsFormsAppMidterm2._0
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Product> query = from product
                                         in mydb.Product
-                                        select product;
+                                        select product;            
             // 若ID非空字串
-            if(isIDEmpty == false)
+            if (isIDEmpty == false)
             {
                 query = from product
                         in query
@@ -135,7 +136,7 @@ namespace WindowsFormsAppMidterm2._0
                     item.Text = $"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
                     listViewDataInfo.Items.Add(item);
                 }
-            }           
+            }            
         }
         // 更新product資料表
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -160,7 +161,7 @@ namespace WindowsFormsAppMidterm2._0
                 if(isPicNameEmpty == false)
                     selectedProduct.picName = productPicName;
                 mydb.SubmitChanges();
-                MessageBox.Show("資料更新成功");
+                MessageBox.Show("資料更新成功");                
             }
         }
         // 刪除product資料表資料
@@ -214,14 +215,12 @@ namespace WindowsFormsAppMidterm2._0
         // 讀取所有textbox
         void ReadTextBox()
         {
-            bool success = Int32.TryParse(txtID.Text, out int result);
-            if (success)
-                productID = result;
+            // 若txtID沒有字串, 則productID為0
+            Int32.TryParse(txtID.Text, out productID);       
             productName = txtName.Text;
-            success = Int32.TryParse(txtPrice.Text, out result);
-            if (success)
-                productCategory = txtCategory.Text;           
-                productPrice = result;
+            // 若txtPrice沒有字串, 則productPrice為0
+            Int32.TryParse(txtPrice.Text, out productPrice);
+            productCategory = txtCategory.Text;           
             productPicName = txtFileName.Text;
             // 檢查各textbox是否有輸入字串
             if (productID == 0)

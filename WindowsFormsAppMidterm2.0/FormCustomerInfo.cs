@@ -40,11 +40,8 @@ namespace WindowsFormsAppMidterm2._0
         // 讀取所有textbox
         void ReadTextBox()
         {
-            bool success = Int32.TryParse(txtID.Text, out int result);
-            if(success)
-            {
-                customerID = result;
-            }           
+            // 若txtID沒有字串, 則customerID為0
+            Int32.TryParse(txtID.Text, out customerID);   
             customerName = txtName.Text;
             customerGender = comboGender.Text;
             customerPhone = txtPhone.Text;
@@ -172,6 +169,7 @@ namespace WindowsFormsAppMidterm2._0
         // 多重欄位查詢
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Customer> query = from customer
@@ -206,7 +204,7 @@ namespace WindowsFormsAppMidterm2._0
             {
                 query = from customer
                         in query
-                        where customer.phone == customerPhone
+                        where customer.phone == customerPhone            
                         select customer;
             }
             // 若email非空字串
@@ -249,14 +247,16 @@ namespace WindowsFormsAppMidterm2._0
             {
                 foreach (Customer customer in query)
                 {
-                    listViewDataInfo.Items.Add($"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}");
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = customer.ID;
+                    item.Text = $"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}";
+                    listViewDataInfo.Items.Add(item);
                 }
             }           
         }
         // 更新customer資料表, 依ID更新
         private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            listViewDataInfo.Clear();
+        {           
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Customer selectedCustomer = (from customer
@@ -330,6 +330,29 @@ namespace WindowsFormsAppMidterm2._0
             else
             {
                 MessageBox.Show("請輸入ID或名字");
+            }
+        }
+
+        private void listViewDataInfo_ItemActivate(object sender, EventArgs e)
+        {
+            if(listViewDataInfo.SelectedItems.Count > 0)
+            {
+                RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
+                int selectedCustomerID = (int)listViewDataInfo.SelectedItems[0].Tag;
+                Customer selectedCustomer = (from customer
+                                            in mydb.Customer
+                                            where customer.ID == selectedCustomerID
+                                            select customer)
+                                            .FirstOrDefault();
+                // 將資料顯示在textbox
+                txtID.Text = selectedCustomer.ID.ToString();
+                txtName.Text = selectedCustomer.name;
+                comboGender.Text = selectedCustomer.gender;
+                txtPhone.Text = selectedCustomer.phone;
+                txtEmail.Text = selectedCustomer.email;
+                txtAddress.Text = selectedCustomer.address;
+                txtAccount.Text = selectedCustomer.account;
+                txtPassword.Text = selectedCustomer.password;
             }
         }
     }
