@@ -155,7 +155,7 @@ namespace WindowsFormsAppMidterm2._0
                 customer.password = customerPassword;
                 mydb.Customer.InsertOnSubmit(customer);
                 mydb.SubmitChanges();
-                Console.WriteLine($"Name : {customer.name}\n" +
+                Console.WriteLine($"name : {customer.name}\n" +
                     $"gender : {customer.gender}\n" +
                     $"phone : {customer.phone}\n" +
                     $"address : {customer.address}\n" +

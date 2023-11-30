@@ -45,7 +45,7 @@ namespace WindowsFormsAppMidterm2._0
             lblPrice.Text = $"{result.price}元";
             lblTotalPrice.Text = $"{result.price}元";
             // 載入圖片
-            Image image = Image.FromFile(GlobalVar.imageDirWork + @"\" + result.picName);
+            Image image = Image.FromFile(GlobalVar.imageDirHome + @"\" + result.picName);
             imageList.Images.Add(image);
             listViewImage.View = View.LargeIcon;
             imageList.ImageSize = new Size(120, 120);
