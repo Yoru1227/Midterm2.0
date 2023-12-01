@@ -39,9 +39,15 @@ namespace WindowsFormsAppMidterm2._0
             bool isExist = false;
             ReadTextBox();
             // 檢查所有欄位是否有字串
+            Console.WriteLine(isNameEmpty);
+            Console.WriteLine(isPriceEmpty);
+            Console.WriteLine(isCategoryEmpty);
+            Console.WriteLine(isIsInStockEmpty);
+            Console.WriteLine(isPicNameEmpty);
             if(isNameEmpty || isPriceEmpty || isCategoryEmpty || isIsInStockEmpty || isPicNameEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
+                return;
             }
             // 檢查名字是否被使用
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
@@ -133,7 +139,7 @@ namespace WindowsFormsAppMidterm2._0
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = product.ID;
-                    item.Text = $"$ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
+                    item.Text = $"ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
                     listViewDataInfo.Items.Add(item);
                 }
             }            
@@ -220,6 +226,8 @@ namespace WindowsFormsAppMidterm2._0
             productName = txtName.Text;
             // 若txtPrice沒有字串, 則productPrice為0
             Int32.TryParse(txtPrice.Text, out productPrice);
+            // 若txtIsInStock輸入失敗, 則isInStock為false
+            bool.TryParse(txtIsInStock.Text, out isInStock);
             productCategory = txtCategory.Text;           
             productPicName = txtFileName.Text;
             // 檢查各textbox是否有輸入字串
@@ -238,15 +246,20 @@ namespace WindowsFormsAppMidterm2._0
             else
                 isPriceEmpty = false;
 
+            if (isInStock == false)
+                isIsInStockEmpty = true;
+            else
+                isIsInStockEmpty = false;
+
             if (productCategory == "")
                 isCategoryEmpty = true;
             else
                 isCategoryEmpty = false;
 
             if (productPicName == "")
-                isCategoryEmpty = true;
+                isPicNameEmpty = true;
             else
-                isCategoryEmpty = false;
+                isPicNameEmpty = false;
             // 清空所有textbox
             txtID.Text = "";
             txtName.Text = "";

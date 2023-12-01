@@ -56,6 +56,12 @@
     <Compile Include="FormCart.Designer.cs">
       <DependentUpon>FormCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgetPassword.Designer.cs">
+      <DependentUpon>FormForgetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProductInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgetPassword.resx">
+      <DependentUpon>FormForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductInfo.resx">
       <DependentUpon>FormProductInfo.cs</DependentUpon>

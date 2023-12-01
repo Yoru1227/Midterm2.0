@@ -99,7 +99,7 @@ namespace WindowsFormsAppMidterm2._0
             foreach (Product product in result)
             {
                 // 從路徑中讀取圖檔
-                string fullDir = GlobalVar.imageDirHome + @"\" + product.picName;
+                string fullDir = GlobalVar.imageDirWork + @"\" + product.picName;
                 Image image = Image.FromFile(fullDir);
                 imageList.Images.Add(image);
             }

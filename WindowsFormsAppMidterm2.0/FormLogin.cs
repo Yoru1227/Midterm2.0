@@ -82,5 +82,11 @@ namespace WindowsFormsAppMidterm2._0
             FormEnroll formEnroll = new FormEnroll();
             formEnroll.ShowDialog();
         }
+
+        private void btnForgetPassword_Click(object sender, EventArgs e)
+        {
+            FormForgetPassword formForgetPassword = new FormForgetPassword();
+            formForgetPassword.ShowDialog();
+        }
     }
 }

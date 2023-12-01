@@ -134,6 +134,7 @@
             this.btnForgetPassword.TabIndex = 9;
             this.btnForgetPassword.Text = "忘記密碼";
             this.btnForgetPassword.UseVisualStyleBackColor = false;
+            this.btnForgetPassword.Click += new System.EventHandler(this.btnForgetPassword_Click);
             // 
             // FormLogin
             // 
