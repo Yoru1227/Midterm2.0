@@ -795,6 +795,8 @@ namespace WindowsFormsAppMidterm2._0
 		
 		private string _comment;
 		
+		private bool _isPaid;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -815,6 +817,8 @@ namespace WindowsFormsAppMidterm2._0
     partial void OnemployeeIDChanged();
     partial void OncommentChanging(string value);
     partial void OncommentChanged();
+    partial void OnisPaidChanging(bool value);
+    partial void OnisPaidChanged();
     #endregion
 		
 		public Order()
@@ -978,6 +982,26 @@ namespace WindowsFormsAppMidterm2._0
 					this._comment = value;
 					this.SendPropertyChanged("comment");
 					this.OncommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isPaid", DbType="Bit NOT NULL")]
+		public bool isPaid
+		{
+			get
+			{
+				return this._isPaid;
+			}
+			set
+			{
+				if ((this._isPaid != value))
+				{
+					this.OnisPaidChanging(value);
+					this.SendPropertyChanging();
+					this._isPaid = value;
+					this.SendPropertyChanged("isPaid");
+					this.OnisPaidChanged();
 				}
 			}
 		}

@@ -8,22 +8,22 @@
         <elementListCompartment Id="9eb36cb2-992f-4103-bd58-b13d85ce43d8" absoluteBounds="4.64, 1.585, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="09df1d80-b961-4470-8015-0978b3d7aa79" absoluteBounds="8.25, 1.75, 2, 2.4612756347656251">
+    <classShape Id="09df1d80-b961-4470-8015-0978b3d7aa79" absoluteBounds="2.375, 1.25, 2, 2.4612756347656251">
       <DataClassMoniker Name="/RestaurantDataClassesDataContext/Employee" />
       <nestedChildShapes>
-        <elementListCompartment Id="9c6a91b2-3d73-418a-8f82-a612e9b826f5" absoluteBounds="8.265, 2.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9c6a91b2-3d73-418a-8f82-a612e9b826f5" absoluteBounds="2.3900000000000006, 1.71, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cface3ee-c7b0-45b5-939d-5ab22a6c12f4" absoluteBounds="8, 5.25, 2, 1.9068933105468751">
+    <classShape Id="cface3ee-c7b0-45b5-939d-5ab22a6c12f4" absoluteBounds="2.375, 4, 2, 1.9068933105468751">
       <DataClassMoniker Name="/RestaurantDataClassesDataContext/Product" />
       <nestedChildShapes>
-        <elementListCompartment Id="99533c16-d672-4bbc-a458-82029b15c737" absoluteBounds="8.015, 5.71, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="99533c16-d672-4bbc-a458-82029b15c737" absoluteBounds="2.3900000000000006, 4.46, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0c1c45b9-7428-4e54-8c50-9d9465e92abc" absoluteBounds="2, 4.5, 2, 2.2764815266927085">
+    <classShape Id="aacbde27-0ecc-4d37-a8a5-b5bbf80a9d85" absoluteBounds="4.625, 4, 2, 2.4612756347656251">
       <DataClassMoniker Name="/RestaurantDataClassesDataContext/Order" />
       <nestedChildShapes>
-        <elementListCompartment Id="4c955fa3-dd93-4cda-87bb-e4e6e1bf84cf" absoluteBounds="2.015, 4.96, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="29f8e598-fbf9-4a7f-93cd-1b5665ac85f0" absoluteBounds="4.6400000000000006, 4.46, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

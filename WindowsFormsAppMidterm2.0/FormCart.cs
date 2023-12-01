@@ -23,7 +23,7 @@ namespace WindowsFormsAppMidterm2._0
             lblTitle.Text = $"{GlobalVar.userName}的購物車";
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 查詢Order資料表與customerID有關的資料
-            ShowListView();                    
+            ShowListView();
         }
         void ShowListView()
         {
@@ -33,11 +33,18 @@ namespace WindowsFormsAppMidterm2._0
             listViewOrderList.Items.Clear();
             // 資料庫連線
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            IQueryable<Order> orderQuery = from order in mydb.Order where order.customerID == GlobalVar.ID select order;
+            // 查詢customer未結帳的order
+            IQueryable<Order> orderQuery = from order
+                                           in mydb.Order
+                                           where (order.customerID == GlobalVar.ID) && (order.isPaid == false)
+                                           select order;
             foreach (Order order in orderQuery)
             {
                 // 查詢order對應的Product
-                IQueryable<Product> productQuery = from product in mydb.Product where product.ID == order.productID select product;
+                IQueryable<Product> productQuery = from product 
+                                                   in mydb.Product 
+                                                   where product.ID == order.productID 
+                                                   select product;
                 Product selectedProduct = productQuery.FirstOrDefault();
                 string str = $"訂單編號:{order.ID},{selectedProduct.name},單價:{selectedProduct.price},數量:{order.amount},總價:{order.totalPrice}{(order.comment == "" ? "" : ",")}{order.comment}";
                 ListViewItem item = new ListViewItem(str);
@@ -89,6 +96,24 @@ namespace WindowsFormsAppMidterm2._0
                     ShowListView();
                 }
             }           
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            // 資料庫連線
+            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
+            // 查詢customer未結帳的order
+            IQueryable<Order> orderQuery = from order
+                                           in mydb.Order
+                                           where (order.customerID == GlobalVar.ID) && (order.isPaid == false)
+                                           select order;
+            // 將訂單結帳
+            foreach(Order order in orderQuery)
+            {
+                order.isPaid = true;
+            }
+            mydb.SubmitChanges();
+            ShowListView();
         }
     }
 }

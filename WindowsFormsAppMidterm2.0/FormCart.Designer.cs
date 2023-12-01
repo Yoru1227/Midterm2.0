@@ -45,8 +45,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(593, 59);
+            this.panel1.Size = new System.Drawing.Size(791, 74);
             this.panel1.TabIndex = 0;
             // 
             // lblTitle
@@ -55,8 +56,9 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(593, 56);
+            this.lblTitle.Size = new System.Drawing.Size(791, 70);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "購物車";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,9 +68,10 @@
             this.listViewOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewOrderList.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewOrderList.HideSelection = false;
-            this.listViewOrderList.Location = new System.Drawing.Point(0, 59);
+            this.listViewOrderList.Location = new System.Drawing.Point(0, 74);
+            this.listViewOrderList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewOrderList.Name = "listViewOrderList";
-            this.listViewOrderList.Size = new System.Drawing.Size(593, 551);
+            this.listViewOrderList.Size = new System.Drawing.Size(791, 688);
             this.listViewOrderList.TabIndex = 1;
             this.listViewOrderList.UseCompatibleStateImageBehavior = false;
             this.listViewOrderList.View = System.Windows.Forms.View.List;
@@ -80,9 +83,10 @@
             this.panel2.Controls.Add(this.btnBack);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel2.Location = new System.Drawing.Point(0, 531);
+            this.panel2.Location = new System.Drawing.Point(0, 663);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(593, 79);
+            this.panel2.Size = new System.Drawing.Size(791, 99);
             this.panel2.TabIndex = 2;
             // 
             // btnDeleteOrder
@@ -92,9 +96,10 @@
             this.btnDeleteOrder.FlatAppearance.BorderSize = 0;
             this.btnDeleteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteOrder.ForeColor = System.Drawing.Color.LightCoral;
-            this.btnDeleteOrder.Location = new System.Drawing.Point(178, 0);
+            this.btnDeleteOrder.Location = new System.Drawing.Point(237, 0);
+            this.btnDeleteOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
-            this.btnDeleteOrder.Size = new System.Drawing.Size(237, 79);
+            this.btnDeleteOrder.Size = new System.Drawing.Size(317, 99);
             this.btnDeleteOrder.TabIndex = 2;
             this.btnDeleteOrder.Text = "刪除訂單";
             this.btnDeleteOrder.UseVisualStyleBackColor = false;
@@ -106,12 +111,14 @@
             this.btnPay.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPay.Location = new System.Drawing.Point(415, 0);
+            this.btnPay.Location = new System.Drawing.Point(554, 0);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(178, 79);
+            this.btnPay.Size = new System.Drawing.Size(237, 99);
             this.btnPay.TabIndex = 1;
             this.btnPay.Text = "結帳";
             this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // btnBack
             // 
@@ -120,8 +127,9 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(178, 79);
+            this.btnBack.Size = new System.Drawing.Size(237, 99);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "返回";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -129,13 +137,15 @@
             // 
             // FormCart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(593, 610);
+            this.ClientSize = new System.Drawing.Size(791, 762);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.listViewOrderList);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCart";
             this.Text = "FormCart";
             this.Load += new System.EventHandler(this.FormCart_Load);

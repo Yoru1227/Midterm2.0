@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.listViewImage = new System.Windows.Forms.ListView();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtComment = new System.Windows.Forms.TextBox();
@@ -41,6 +40,8 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btnAddCart = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,16 +57,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "OO小吃部";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // listViewImage
-            // 
-            this.listViewImage.HideSelection = false;
-            this.listViewImage.Location = new System.Drawing.Point(16, 79);
-            this.listViewImage.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewImage.Name = "listViewImage";
-            this.listViewImage.Size = new System.Drawing.Size(239, 224);
-            this.listViewImage.TabIndex = 1;
-            this.listViewImage.UseCompatibleStateImageBehavior = false;
             // 
             // lblName
             // 
@@ -183,11 +174,20 @@
             this.btnAddCart.UseVisualStyleBackColor = false;
             this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
             // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(20, 79);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(215, 215);
+            this.pictureBox.TabIndex = 14;
+            this.pictureBox.TabStop = false;
+            // 
             // FormDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 560);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnAddCart);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTotalPrice);
@@ -198,11 +198,11 @@
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.listViewImage);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDetail";
             this.Text = "FormDetail";
             this.Load += new System.EventHandler(this.FormDetail_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,7 +210,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listViewImage;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.TextBox txtComment;
@@ -221,5 +220,6 @@
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Button btnAddCart;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

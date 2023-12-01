@@ -99,9 +99,9 @@ namespace WindowsFormsAppMidterm2._0
             foreach (Product product in result)
             {
                 // 從路徑中讀取圖檔
-                string fullDir = GlobalVar.imageDirWork + @"\" + product.picName;
+                string fullDir = GlobalVar.imageDirHome + @"\" + product.picName;
                 Image image = Image.FromFile(fullDir);
-                imageList.Images.Add(image);
+                imageList.Images.Add(image);               
             }
         }
         // 顯示listViewImage的圖片
@@ -109,7 +109,7 @@ namespace WindowsFormsAppMidterm2._0
         {
             listViewImage.Clear();
             listViewImage.View = View.LargeIcon;
-            imageList.ImageSize = new Size(128, 128);
+            imageList.ImageSize = new Size(150, 150);
             listViewImage.LargeImageList = imageList;
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Product> search = from product
@@ -143,7 +143,12 @@ namespace WindowsFormsAppMidterm2._0
         {
             // 創建formCart表單
             FormCart formCart = new FormCart();
+            // 隱藏formOrder表單
+            Hide();
+            // 顯示formCart表單
             formCart.ShowDialog();
+            // 隱藏formOrder表單
+            Show();
         }
     }
 }

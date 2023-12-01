@@ -45,17 +45,8 @@ namespace WindowsFormsAppMidterm2._0
             lblPrice.Text = $"{result.price}元";
             lblTotalPrice.Text = $"{result.price}元";
             // 載入圖片
-            Image image = Image.FromFile(GlobalVar.imageDirWork + @"\" + result.picName);
-            imageList.Images.Add(image);
-            listViewImage.View = View.LargeIcon;
-            imageList.ImageSize = new Size(120, 120);
-            listViewImage.LargeImageList = imageList;
-            ListViewItem item = new ListViewItem();
-            item.ImageIndex = 0;
-            item.Text = $"";
-            item.Font = new Font("微軟正黑體", 12);
-            item.Tag = productID;
-            listViewImage.Items.Add(item);           
+            pictureBox.Load(GlobalVar.imageDirHome + @"\" + result.picName);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;          
         }
         // 減數量button
         private void btnSubstract_Click(object sender, EventArgs e)
@@ -90,7 +81,7 @@ namespace WindowsFormsAppMidterm2._0
             }
             else
             {
-                MessageBox.Show("杯數輸入有誤,請重新輸入");
+                MessageBox.Show("數量輸入有誤,請重新輸入");
                 txtAmount.Text = "1";
             }
         }
@@ -102,7 +93,18 @@ namespace WindowsFormsAppMidterm2._0
             order.customerID = GlobalVar.ID;
             order.datetime = DateTime.Now;
             order.productID = productID;
-            order.amount = amount;
+            // 若txtAmount非數字, 則重新輸入
+            bool success = Int32.TryParse(txtAmount.Text,out amount);
+            if(success == false)
+            {
+                MessageBox.Show("數量輸入有誤,請重新輸入");
+                txtAmount.Text = "1";
+                return;
+            }
+            else
+            {
+                order.amount = amount;
+            }
             order.totalPrice = totalPrice;
             order.employeeID = 1;
             // lblComment有文字就輸入資料, 否則輸入空字串
