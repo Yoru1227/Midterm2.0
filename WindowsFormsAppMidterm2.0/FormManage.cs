@@ -50,28 +50,24 @@ namespace WindowsFormsAppMidterm2._0
         {
             DisableButton();
             OpenChildForm(new FormCustomerInfo(), sender);
-            //ActivateButton((Button)sender);
         }
 
         private void btnProductInfoManage_Click(object sender, EventArgs e)
         {
             DisableButton();
             OpenChildForm(new FormProductInfo(), sender);
-            //ActivateButton((Button)sender);
         }
 
         private void btnOrderManage_Click(object sender, EventArgs e)
         {
             DisableButton();
             OpenChildForm(new FormOrderInfo(), sender);
-            //ActivateButton((Button)sender);
         }
 
         private void btnSystemManage_Click(object sender, EventArgs e)
         {
             DisableButton();
             OpenChildForm(new FormEmployeeManage(), sender);
-            //ActivateButton((Button)sender);
         }
         // 開啟子表單
         private void OpenChildForm(Form childForm, object btnSender)
