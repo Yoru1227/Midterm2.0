@@ -66,8 +66,15 @@ namespace WindowsFormsAppMidterm2._0
 
         private void btnSystemManage_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            OpenChildForm(new FormEmployeeManage(), sender);
+            if(GlobalVar.permission < 10000)
+            {
+                MessageBox.Show("權限不足");
+            }
+            else
+            {
+                DisableButton();
+                OpenChildForm(new FormEmployeeManage(), sender);
+            }           
         }
         // 開啟子表單
         private void OpenChildForm(Form childForm, object btnSender)

@@ -33,7 +33,14 @@ namespace WindowsFormsAppMidterm2._0
         }
         private void FormProductInfo_Load(object sender, EventArgs e)
         {
-
+            // 店員無法新增、更新、刪除商品
+            if(GlobalVar.permission < 10000)
+            {
+                btnInsert.Visible = false;
+                btnSearch.Dock = DockStyle.Fill;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {

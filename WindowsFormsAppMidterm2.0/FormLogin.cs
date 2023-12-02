@@ -42,6 +42,7 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.ID = employee.ID;
                 GlobalVar.userName = employee.name;
                 GlobalVar.isLogin = true;
+                GlobalVar.permission = employee.permission;
                 Hide();
                 FormManage formManage = new FormManage();
                 formManage.ShowDialog();
@@ -51,6 +52,7 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.ID = customer.ID;
                 GlobalVar.userName = customer.name;
                 GlobalVar.isLogin = true;
+                GlobalVar.permission = 1;
                 Hide();
                 FormOrder formOrder = new FormOrder();
                 formOrder.ShowDialog();              

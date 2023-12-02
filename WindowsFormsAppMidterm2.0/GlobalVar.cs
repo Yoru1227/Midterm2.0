@@ -12,6 +12,7 @@ namespace WindowsFormsAppMidterm2._0
         public static string imageDirHome = "C:\\Users\\user\\Desktop\\全端工程師\\Midterm2.0\\Midterm2.0\\pics";
         public static string imageDirWork = "C:\\Users\\iSpan\\Desktop\\上課筆記\\WindowsFormsAppMidterm2.0\\pics";
         public static int ID = 0;
+        public static int permission = 0;
         public static string userName = "";
         public static bool isLogin = false;
     }
