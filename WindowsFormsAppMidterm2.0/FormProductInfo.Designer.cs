@@ -232,7 +232,8 @@
             this.listViewDataInfo.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewDataInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewDataInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listViewDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listViewDataInfo.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listViewDataInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewDataInfo.HideSelection = false;
             this.listViewDataInfo.Location = new System.Drawing.Point(0, 0);
             this.listViewDataInfo.Margin = new System.Windows.Forms.Padding(4);

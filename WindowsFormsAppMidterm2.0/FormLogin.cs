@@ -19,7 +19,7 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            Console.WriteLine(DateTime.Now.ToString());
         }
         // 按下登入按鈕
         private void btnLogin_Click(object sender, EventArgs e)
@@ -87,6 +87,22 @@ namespace WindowsFormsAppMidterm2._0
         {
             FormForgetPassword formForgetPassword = new FormForgetPassword();
             formForgetPassword.ShowDialog();
+        }
+
+        private void txtAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Down)
+            {
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtAccount.Focus();
+            }           
         }
     }
 }

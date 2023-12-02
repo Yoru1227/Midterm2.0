@@ -51,20 +51,18 @@
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(675, 71);
+            this.label1.Size = new System.Drawing.Size(506, 57);
             this.label1.TabIndex = 0;
-            this.label1.Text = "OO小吃部";
+            this.label1.Text = "阿儒小吃部";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblName.Location = new System.Drawing.Point(264, 79);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(198, 63);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(191, 62);
+            this.lblName.Size = new System.Drawing.Size(143, 50);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "品名";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,10 +70,9 @@
             // lblPrice
             // 
             this.lblPrice.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPrice.Location = new System.Drawing.Point(264, 225);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Location = new System.Drawing.Point(198, 180);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(191, 62);
+            this.lblPrice.Size = new System.Drawing.Size(143, 50);
             this.lblPrice.TabIndex = 3;
             this.lblPrice.Text = "價格";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,11 +80,10 @@
             // txtComment
             // 
             this.txtComment.Font = new System.Drawing.Font("微軟正黑體 Light", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtComment.Location = new System.Drawing.Point(16, 311);
-            this.txtComment.Margin = new System.Windows.Forms.Padding(4);
+            this.txtComment.Location = new System.Drawing.Point(12, 249);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(641, 173);
+            this.txtComment.Size = new System.Drawing.Size(482, 139);
             this.txtComment.TabIndex = 4;
             this.txtComment.Text = "備註(例 : 小辣)";
             this.txtComment.Enter += new System.EventHandler(this.txtComment_Enter);
@@ -96,10 +92,9 @@
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtAmount.Location = new System.Drawing.Point(541, 160);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAmount.Location = new System.Drawing.Point(406, 128);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(63, 42);
+            this.txtAmount.Size = new System.Drawing.Size(48, 35);
             this.txtAmount.TabIndex = 10;
             this.txtAmount.Text = "1";
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -107,10 +102,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnAdd.Location = new System.Drawing.Point(619, 161);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(464, 129);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(40, 38);
+            this.btnAdd.Size = new System.Drawing.Size(30, 30);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -119,10 +113,9 @@
             // btnSubstract
             // 
             this.btnSubstract.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSubstract.Location = new System.Drawing.Point(488, 161);
-            this.btnSubstract.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubstract.Location = new System.Drawing.Point(366, 129);
             this.btnSubstract.Name = "btnSubstract";
-            this.btnSubstract.Size = new System.Drawing.Size(40, 38);
+            this.btnSubstract.Size = new System.Drawing.Size(30, 30);
             this.btnSubstract.TabIndex = 8;
             this.btnSubstract.Text = "-";
             this.btnSubstract.UseVisualStyleBackColor = true;
@@ -131,10 +124,9 @@
             // lblAmount
             // 
             this.lblAmount.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblAmount.Location = new System.Drawing.Point(481, 79);
-            this.lblAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAmount.Location = new System.Drawing.Point(361, 63);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(191, 62);
+            this.lblAmount.Size = new System.Drawing.Size(143, 50);
             this.lblAmount.TabIndex = 11;
             this.lblAmount.Text = "數量";
             this.lblAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,10 +134,9 @@
             // lblTotalPrice
             // 
             this.lblTotalPrice.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(484, 225);
-            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPrice.Location = new System.Drawing.Point(363, 180);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(191, 62);
+            this.lblTotalPrice.Size = new System.Drawing.Size(143, 50);
             this.lblTotalPrice.TabIndex = 12;
             this.lblTotalPrice.Text = "總價";
             this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,10 +156,9 @@
             this.btnAddCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCart.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAddCart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAddCart.Location = new System.Drawing.Point(0, 496);
-            this.btnAddCart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddCart.Location = new System.Drawing.Point(0, 397);
             this.btnAddCart.Name = "btnAddCart";
-            this.btnAddCart.Size = new System.Drawing.Size(675, 64);
+            this.btnAddCart.Size = new System.Drawing.Size(506, 51);
             this.btnAddCart.TabIndex = 13;
             this.btnAddCart.Text = "加入購物車";
             this.btnAddCart.UseVisualStyleBackColor = false;
@@ -176,17 +166,18 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(20, 79);
+            this.pictureBox.Location = new System.Drawing.Point(15, 63);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(215, 215);
+            this.pictureBox.Size = new System.Drawing.Size(161, 172);
             this.pictureBox.TabIndex = 14;
             this.pictureBox.TabStop = false;
             // 
             // FormDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 560);
+            this.ClientSize = new System.Drawing.Size(506, 448);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnAddCart);
             this.Controls.Add(this.label1);
@@ -198,7 +189,6 @@
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDetail";
             this.Text = "FormDetail";
             this.Load += new System.EventHandler(this.FormDetail_Load);

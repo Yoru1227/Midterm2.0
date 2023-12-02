@@ -37,10 +37,13 @@ namespace WindowsFormsAppMidterm2._0
         private void FormCustomerInfo_Load(object sender, EventArgs e)
         {
             // 店員無法新增、刪除顧客
-            btnInsert.Visible = false;
-            btnSearch.Dock = DockStyle.Fill;
-            btnUpdate.Visible = false;
-            btnDelete.Visible = false;
+            if(GlobalVar.permission < 10000)
+            {
+                btnInsert.Visible = false;
+                btnSearch.Dock = DockStyle.Fill;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
         }
         // 讀取所有textbox
         void ReadTextBox()

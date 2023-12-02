@@ -40,7 +40,7 @@ namespace WindowsFormsAppMidterm2._0
                 btnSearch.Dock = DockStyle.Fill;
                 btnUpdate.Visible = false;
                 btnDelete.Visible = false;
-            }
+            }           
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -52,7 +52,7 @@ namespace WindowsFormsAppMidterm2._0
             Console.WriteLine(isCategoryEmpty);
             Console.WriteLine(isIsInStockParseSuccess);
             Console.WriteLine(isPicNameEmpty);
-            if(isNameEmpty || isPriceEmpty || isCategoryEmpty || isIsInStockParseSuccess || isPicNameEmpty)
+            if(isNameEmpty || isPriceEmpty || isCategoryEmpty || !isIsInStockParseSuccess || isPicNameEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
                 return;
@@ -150,7 +150,7 @@ namespace WindowsFormsAppMidterm2._0
                     item.Text = $"ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
                     listViewDataInfo.Items.Add(item);
                 }
-            }            
+            }
         }
         // 更新product資料表
         private void btnUpdate_Click(object sender, EventArgs e)
