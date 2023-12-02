@@ -56,7 +56,7 @@
             this.txtIsInStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtIsInStock.Name = "txtIsInStock";
             this.txtIsInStock.Size = new System.Drawing.Size(124, 39);
-            this.txtIsInStock.TabIndex = 38;
+            this.txtIsInStock.TabIndex = 5;
             // 
             // label8
             // 
@@ -76,8 +76,8 @@
             this.txtFileName.Location = new System.Drawing.Point(517, 440);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(297, 39);
-            this.txtFileName.TabIndex = 33;
+            this.txtFileName.Size = new System.Drawing.Size(401, 39);
+            this.txtFileName.TabIndex = 6;
             // 
             // label6
             // 
@@ -94,18 +94,18 @@
             // txtCategory
             // 
             this.txtCategory.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCategory.Location = new System.Drawing.Point(640, 376);
+            this.txtCategory.Location = new System.Drawing.Point(674, 376);
             this.txtCategory.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(175, 39);
-            this.txtCategory.TabIndex = 31;
+            this.txtCategory.Size = new System.Drawing.Size(244, 39);
+            this.txtCategory.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(563, 382);
+            this.label5.Location = new System.Drawing.Point(605, 382);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 30);
@@ -119,7 +119,7 @@
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(124, 39);
-            this.txtPrice.TabIndex = 28;
+            this.txtPrice.TabIndex = 4;
             // 
             // label3
             // 
@@ -139,8 +139,8 @@
             this.txtName.Location = new System.Drawing.Point(303, 379);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(241, 39);
-            this.txtName.TabIndex = 26;
+            this.txtName.Size = new System.Drawing.Size(294, 39);
+            this.txtName.TabIndex = 2;
             // 
             // txtID
             // 
@@ -149,7 +149,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(127, 39);
-            this.txtID.TabIndex = 24;
+            this.txtID.TabIndex = 1;
             // 
             // label1
             // 
@@ -167,10 +167,10 @@
             // 
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(633, 0);
+            this.btnDelete.Location = new System.Drawing.Point(708, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(211, 69);
+            this.btnDelete.Size = new System.Drawing.Size(236, 69);
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "刪除";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@
             // 
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(422, 0);
+            this.btnUpdate.Location = new System.Drawing.Point(472, 0);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(211, 69);
+            this.btnUpdate.Size = new System.Drawing.Size(236, 69);
             this.btnUpdate.TabIndex = 13;
             this.btnUpdate.Text = "更新";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -193,10 +193,10 @@
             // 
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(211, 0);
+            this.btnSearch.Location = new System.Drawing.Point(236, 0);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(211, 69);
+            this.btnSearch.Size = new System.Drawing.Size(236, 69);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "查詢";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             this.btnInsert.Location = new System.Drawing.Point(0, 0);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(211, 69);
+            this.btnInsert.Size = new System.Drawing.Size(236, 69);
             this.btnInsert.TabIndex = 11;
             this.btnInsert.Text = "新增";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -232,13 +232,13 @@
             this.listViewDataInfo.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewDataInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewDataInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listViewDataInfo.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listViewDataInfo.Font = new System.Drawing.Font("微軟正黑體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewDataInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewDataInfo.HideSelection = false;
             this.listViewDataInfo.Location = new System.Drawing.Point(0, 0);
             this.listViewDataInfo.Margin = new System.Windows.Forms.Padding(4);
             this.listViewDataInfo.Name = "listViewDataInfo";
-            this.listViewDataInfo.Size = new System.Drawing.Size(844, 352);
+            this.listViewDataInfo.Size = new System.Drawing.Size(944, 352);
             this.listViewDataInfo.TabIndex = 22;
             this.listViewDataInfo.UseCompatibleStateImageBehavior = false;
             this.listViewDataInfo.View = System.Windows.Forms.View.List;
@@ -257,7 +257,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 501);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 69);
+            this.panel1.Size = new System.Drawing.Size(944, 69);
             this.panel1.TabIndex = 21;
             // 
             // FormProductInfo
@@ -265,7 +265,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(844, 570);
+            this.ClientSize = new System.Drawing.Size(944, 570);
             this.Controls.Add(this.txtIsInStock);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtFileName);

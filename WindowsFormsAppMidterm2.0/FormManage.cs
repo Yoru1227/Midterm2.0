@@ -20,6 +20,7 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormManage_Load(object sender, EventArgs e)
         {
+            lblLoginInfo.Text = $"{GlobalVar.userName}, 您好";
             DisableButton();
             OpenChildForm(new FormCustomerInfo(), btnMemberInfoManage);
         }
