@@ -25,7 +25,7 @@ namespace WindowsFormsAppMidterm2._0
         bool isNameEmpty = true;
         bool isPriceEmpty = true;
         bool isCategoryEmpty = true;
-        bool isIsInStockEmpty = true;
+        bool isIsInStockParseSuccess = false;
         bool isPicNameEmpty = true;
         public FormProductInfo()
         {
@@ -43,9 +43,9 @@ namespace WindowsFormsAppMidterm2._0
             Console.WriteLine(isNameEmpty);
             Console.WriteLine(isPriceEmpty);
             Console.WriteLine(isCategoryEmpty);
-            Console.WriteLine(isIsInStockEmpty);
+            Console.WriteLine(isIsInStockParseSuccess);
             Console.WriteLine(isPicNameEmpty);
-            if(isNameEmpty || isPriceEmpty || isCategoryEmpty || isIsInStockEmpty || isPicNameEmpty)
+            if(isNameEmpty || isPriceEmpty || isCategoryEmpty || isIsInStockParseSuccess || isPicNameEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
                 return;
@@ -123,7 +123,7 @@ namespace WindowsFormsAppMidterm2._0
                         select product;
             }
             // 若存貨非空字串
-            if(isIsInStockEmpty == false)
+            if(isIsInStockParseSuccess == true)
             {
                 query = from product
                         in query
@@ -164,7 +164,7 @@ namespace WindowsFormsAppMidterm2._0
                     selectedProduct.price = productPrice;
                 if(isCategoryEmpty == false)
                     selectedProduct.category = productCategory;
-                if(isIsInStockEmpty == false)
+                if(isIsInStockParseSuccess == true)
                     selectedProduct.isInStock = isInStock;
                 if(isPicNameEmpty == false)
                     selectedProduct.picName = productPicName;
@@ -266,8 +266,8 @@ namespace WindowsFormsAppMidterm2._0
             // 若txtPrice沒有字串, 則productPrice為0
             Int32.TryParse(txtPrice.Text, out productPrice);
             // 若txtIsInStock輸入失敗, 則isInStock為false
-            bool.TryParse(txtIsInStock.Text, out isInStock);
-            productCategory = txtCategory.Text;           
+            isIsInStockParseSuccess = bool.TryParse(txtIsInStock.Text, out isInStock);
+            productCategory = txtCategory.Text; 
             productPicName = txtFileName.Text;
             // 檢查各textbox是否有輸入字串
             if (productID == 0)
@@ -284,11 +284,6 @@ namespace WindowsFormsAppMidterm2._0
                 isPriceEmpty = true;
             else
                 isPriceEmpty = false;
-
-            if (isInStock == false)
-                isIsInStockEmpty = true;
-            else
-                isIsInStockEmpty = false;
 
             if (productCategory == "")
                 isCategoryEmpty = true;
@@ -324,7 +319,7 @@ namespace WindowsFormsAppMidterm2._0
                 txtName.Text = selectedProduct.name;
                 txtPrice.Text = selectedProduct.price.ToString();
                 txtCategory.Text = selectedProduct.category.ToString();
-                txtIsInStock.Text = (selectedProduct.isInStock ? "有存貨" : "缺貨");
+                txtIsInStock.Text = selectedProduct.isInStock.ToString();
                 txtFileName.Text = selectedProduct.picName;               
             }
         }

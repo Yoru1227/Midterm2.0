@@ -28,8 +28,7 @@ namespace WindowsFormsAppMidterm2._0
             scsb.InitialCatalog = "RestaurantDB";
             scsb.IntegratedSecurity = true;
             GlobalVar.strMyDBConnectionString = scsb.ConnectionString;
-            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();           
-
+            RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             lblLoginInfo.Text = $"{GlobalVar.userName}, 您好";
             ReadPics();
             // 預設顯示飯類
@@ -95,7 +94,10 @@ namespace WindowsFormsAppMidterm2._0
         void ReadPics()
         {
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            IQueryable result = from product in mydb.Product select product;
+            IQueryable result = from product
+                                in mydb.Product
+                                where product.isInStock == true
+                                select product;
             foreach (Product product in result)
             {
                 // 從路徑中讀取圖檔
@@ -114,6 +116,7 @@ namespace WindowsFormsAppMidterm2._0
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Product> search = from product
                                          in mydb.Product 
+                                         where product.isInStock == true
                                          select product;
             int index = 0;
             foreach(Product product in search)
