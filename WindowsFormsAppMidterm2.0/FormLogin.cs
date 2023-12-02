@@ -19,7 +19,7 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-                     
+
         }
         // 按下登入按鈕
         private void btnLogin_Click(object sender, EventArgs e)
@@ -53,9 +53,7 @@ namespace WindowsFormsAppMidterm2._0
                 GlobalVar.isLogin = true;
                 Hide();
                 FormOrder formOrder = new FormOrder();
-                formOrder.ShowDialog();
-                
-
+                formOrder.ShowDialog();              
             }
             if(searchEmployee.Count() + searchCustomer.Count() == 0)
             {

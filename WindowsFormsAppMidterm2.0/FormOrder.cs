@@ -150,5 +150,11 @@ namespace WindowsFormsAppMidterm2._0
             // 隱藏formOrder表單
             Show();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            FormCustomerUpdate formCustomerUpdate = new FormCustomerUpdate();
+            formCustomerUpdate.ShowDialog();
+        }
     }
 }

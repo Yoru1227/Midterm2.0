@@ -50,8 +50,9 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(187, 523);
+            this.panelMenu.Size = new System.Drawing.Size(249, 654);
             this.panelMenu.TabIndex = 0;
             // 
             // btnSystemManage
@@ -60,11 +61,12 @@
             this.btnSystemManage.FlatAppearance.BorderSize = 0;
             this.btnSystemManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSystemManage.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSystemManage.Location = new System.Drawing.Point(0, 239);
+            this.btnSystemManage.Location = new System.Drawing.Point(0, 298);
+            this.btnSystemManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSystemManage.Name = "btnSystemManage";
-            this.btnSystemManage.Size = new System.Drawing.Size(187, 61);
+            this.btnSystemManage.Size = new System.Drawing.Size(249, 76);
             this.btnSystemManage.TabIndex = 4;
-            this.btnSystemManage.Text = "系統管理";
+            this.btnSystemManage.Text = "員工管理";
             this.btnSystemManage.UseVisualStyleBackColor = true;
             this.btnSystemManage.Click += new System.EventHandler(this.btnSystemManage_Click);
             // 
@@ -74,9 +76,10 @@
             this.btnOrderManage.FlatAppearance.BorderSize = 0;
             this.btnOrderManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrderManage.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOrderManage.Location = new System.Drawing.Point(0, 178);
+            this.btnOrderManage.Location = new System.Drawing.Point(0, 222);
+            this.btnOrderManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOrderManage.Name = "btnOrderManage";
-            this.btnOrderManage.Size = new System.Drawing.Size(187, 61);
+            this.btnOrderManage.Size = new System.Drawing.Size(249, 76);
             this.btnOrderManage.TabIndex = 3;
             this.btnOrderManage.Text = "訂單管理";
             this.btnOrderManage.UseVisualStyleBackColor = true;
@@ -88,9 +91,10 @@
             this.btnProductInfoManage.FlatAppearance.BorderSize = 0;
             this.btnProductInfoManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductInfoManage.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProductInfoManage.Location = new System.Drawing.Point(0, 117);
+            this.btnProductInfoManage.Location = new System.Drawing.Point(0, 146);
+            this.btnProductInfoManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProductInfoManage.Name = "btnProductInfoManage";
-            this.btnProductInfoManage.Size = new System.Drawing.Size(187, 61);
+            this.btnProductInfoManage.Size = new System.Drawing.Size(249, 76);
             this.btnProductInfoManage.TabIndex = 2;
             this.btnProductInfoManage.Text = "商品資料管理";
             this.btnProductInfoManage.UseVisualStyleBackColor = true;
@@ -102,9 +106,10 @@
             this.btnMemberInfoManage.FlatAppearance.BorderSize = 0;
             this.btnMemberInfoManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMemberInfoManage.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMemberInfoManage.Location = new System.Drawing.Point(0, 56);
+            this.btnMemberInfoManage.Location = new System.Drawing.Point(0, 70);
+            this.btnMemberInfoManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMemberInfoManage.Name = "btnMemberInfoManage";
-            this.btnMemberInfoManage.Size = new System.Drawing.Size(187, 61);
+            this.btnMemberInfoManage.Size = new System.Drawing.Size(249, 76);
             this.btnMemberInfoManage.TabIndex = 1;
             this.btnMemberInfoManage.Text = "會員資料管理";
             this.btnMemberInfoManage.UseVisualStyleBackColor = true;
@@ -116,8 +121,9 @@
             this.lblLoginInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblLoginInfo.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblLoginInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblLoginInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoginInfo.Name = "lblLoginInfo";
-            this.lblLoginInfo.Size = new System.Drawing.Size(187, 56);
+            this.lblLoginInfo.Size = new System.Drawing.Size(249, 70);
             this.lblLoginInfo.TabIndex = 0;
             this.lblLoginInfo.Text = "登入資訊";
             this.lblLoginInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,9 +134,10 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(187, 0);
+            this.lblTitle.Location = new System.Drawing.Point(249, 0);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(632, 56);
+            this.lblTitle.Size = new System.Drawing.Size(843, 70);
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "OO小吃部管理系統";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,20 +145,22 @@
             // panelChildForm
             // 
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(187, 56);
+            this.panelChildForm.Location = new System.Drawing.Point(249, 70);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(632, 467);
+            this.panelChildForm.Size = new System.Drawing.Size(843, 584);
             this.panelChildForm.TabIndex = 7;
             // 
             // FormManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(819, 523);
+            this.ClientSize = new System.Drawing.Size(1092, 654);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelMenu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormManage";
             this.Text = "FormManage";
             this.Load += new System.EventHandler(this.FormManage_Load);

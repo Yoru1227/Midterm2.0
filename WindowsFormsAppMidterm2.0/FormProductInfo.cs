@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -147,6 +148,7 @@ namespace WindowsFormsAppMidterm2._0
         // 更新product資料表
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Product selectedProduct = (from product
@@ -169,10 +171,29 @@ namespace WindowsFormsAppMidterm2._0
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");                
             }
+            // 將listViewDataInfo顯示資料
+            IQueryable<Product> query = from product
+                                        in mydb.Product
+                                        select product;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Product product in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = product.ID;
+                    item.Text = $"ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
+                    listViewDataInfo.Items.Add(item);
+                }
+            }
         }
         // 刪除product資料表資料
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以ID刪除
@@ -216,6 +237,24 @@ namespace WindowsFormsAppMidterm2._0
             else
             {
                 MessageBox.Show("請輸入ID或名稱");
+            }
+            // 將listViewDataInfo顯示資料
+            IQueryable<Product> query = from product
+                                        in mydb.Product
+                                        select product;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Product product in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = product.ID;
+                    item.Text = $"ID:{product.ID},名稱:{product.name},價格:{product.price},分類:{product.category},存貨:{product.isInStock},檔名:{product.picName}";
+                    listViewDataInfo.Items.Add(item);
+                }
             }
         }
         // 讀取所有textbox

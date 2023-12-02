@@ -27,7 +27,7 @@ namespace WindowsFormsAppMidterm2._0
         bool isSalaryEmpty = true;
         bool isTitleEmpty = true;
         bool isOnboardingDateEmpty = true;
-        // 不考慮離職日是否被輸入
+        bool isResignDateEmpty = true;
         bool isAccountEmpty = true;
         bool isPasswordEmpty = true;
 
@@ -53,6 +53,8 @@ namespace WindowsFormsAppMidterm2._0
             employeeTitle = txtTitle.Text;
             onboardingDate = dtpStartDate.Value;
             resignDate = dtpEndDate.Value;
+            employeeAccount = txtAccount.Text;
+            employeePassword = txtPassword.Text;
             // 檢查各textbox或dtp是否有輸入字串
             if(employeeID == 0)
                 isIDEmpty = true;
@@ -93,6 +95,11 @@ namespace WindowsFormsAppMidterm2._0
                 isOnboardingDateEmpty = true;
             else
                 isOnboardingDateEmpty = false;
+
+            if(dtpEndDate.Value == DateTime.Now)
+                isResignDateEmpty = true;
+            else
+                isResignDateEmpty = false;
             // 清空所有textbox
             txtID.Text = "";
             txtName.Text = "";
@@ -110,7 +117,14 @@ namespace WindowsFormsAppMidterm2._0
             bool isEnrolled = false;
             ReadTextBox();
             // 檢查所有欄位是否有字串
-            if(isNameEmpty || isSalaryEmpty || isTitleEmpty|| isPermissionEmpty || isOnboardingDateEmpty || isAccountEmpty || isPasswordEmpty)
+            Console.WriteLine(isNameEmpty);
+            Console.WriteLine(isSalaryEmpty);
+            Console.WriteLine(isTitleEmpty);
+            Console.WriteLine(isPermissionEmpty);
+            Console.WriteLine(isOnboardingDateEmpty);
+            Console.WriteLine(isAccountEmpty);
+            Console.WriteLine(isPasswordEmpty);
+            if (isNameEmpty || isSalaryEmpty || isTitleEmpty|| isPermissionEmpty || isOnboardingDateEmpty || isAccountEmpty || isPasswordEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
             }
@@ -134,6 +148,9 @@ namespace WindowsFormsAppMidterm2._0
                 employee.salary = employeeSalary;
                 employee.title = employeeTitle;
                 employee.onBoardingDate = onboardingDate;
+                // 離職日被更改才將資料輸入
+                if(isResignDateEmpty == false)
+                    employee.resignDate = resignDate;
                 employee.account = employeeAccount;
                 employee.password = employeePassword;
                 mydb.Employee.InsertOnSubmit(employee);
@@ -143,6 +160,7 @@ namespace WindowsFormsAppMidterm2._0
                     $"salary : {employee.salary}\n" +
                     $"title : {employee.title}\n" +
                     $"onboardingDate : {employee.onBoardingDate}\n" +
+                    $"resignDate : {employee.resignDate}" +
                     $"account : {employee.account}\n" +
                     $"password : {employee.password}");
                 MessageBox.Show("Insert成功");
@@ -152,11 +170,13 @@ namespace WindowsFormsAppMidterm2._0
         // 查詢所有員工
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             IQueryable<Employee> query = from employee
                                          in mydb.Employee
                                          select employee;
+            // 將listViewDataInfo顯示資料
             if(query.Count() == 0)
             {
                 MessageBox.Show("查無資料");
@@ -167,7 +187,7 @@ namespace WindowsFormsAppMidterm2._0
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = employee.ID;
-                    item.Text = $"ID:{employee.ID},姓名:{employee.name},薪水:{employee.salary}元,權限:{employee.permission},就職日:{employee.onBoardingDate},離職日:{employee.resignDate}";
+                    item.Text = $"ID:{employee.ID},姓名:{employee.name},薪水:{employee.salary}元,職稱:{employee.title},權限:{employee.permission},就職日:{employee.onBoardingDate},離職日:{employee.resignDate},帳號:{employee.account},密碼:{employee.password}";
                     listViewDataInfo.Items.Add(item);
                 }
             }
@@ -175,6 +195,7 @@ namespace WindowsFormsAppMidterm2._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Employee selectedEmployee = (from employee
@@ -192,6 +213,8 @@ namespace WindowsFormsAppMidterm2._0
                     selectedEmployee.permission = employeePermission;
                 if (isOnboardingDateEmpty == false)
                     selectedEmployee.onBoardingDate = onboardingDate;
+                if(isResignDateEmpty == false)
+                    selectedEmployee.resignDate = resignDate;
                 if(isTitleEmpty == false)
                     selectedEmployee.title = employeeTitle;
                 if(isAccountEmpty == false)
@@ -201,10 +224,29 @@ namespace WindowsFormsAppMidterm2._0
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");
             }
+            // 將listViewDataInfo更新
+            IQueryable<Employee> query = from employee
+                                         in mydb.Employee
+                                         select employee;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Employee employee in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = employee.ID;
+                    item.Text = $"ID:{employee.ID},姓名:{employee.name},薪水:{employee.salary}元,職稱:{employee.title},權限:{employee.permission},就職日:{employee.onBoardingDate},離職日:{employee.resignDate},帳號:{employee.account},密碼:{employee.password}";
+                    listViewDataInfo.Items.Add(item);
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以ID刪除
@@ -249,6 +291,24 @@ namespace WindowsFormsAppMidterm2._0
             {
                 MessageBox.Show("請輸入ID或名字");
             }
+            // 將listViewDataInfo更新
+            IQueryable<Employee> query = from employee
+                                         in mydb.Employee
+                                         select employee;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Employee employee in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = employee.ID;
+                    item.Text = $"ID:{employee.ID},姓名:{employee.name},薪水:{employee.salary}元,職稱:{employee.title},權限:{employee.permission},就職日:{employee.onBoardingDate},離職日:{employee.resignDate},帳號:{employee.account},密碼:{employee.password}";
+                    listViewDataInfo.Items.Add(item);
+                }
+            }
         }
 
         private void listViewDataInfo_ItemActivate(object sender, EventArgs e)
@@ -266,6 +326,7 @@ namespace WindowsFormsAppMidterm2._0
                 txtID.Text = selectedEmployee.ID.ToString();
                 txtName.Text = selectedEmployee.name;
                 txtPermission.Text = selectedEmployee.permission.ToString();
+                txtTitle.Text = selectedEmployee.title;
                 txtSalary.Text = selectedEmployee.salary.ToString();
                 dtpStartDate.Text = selectedEmployee.onBoardingDate.ToString();
                 dtpEndDate.Text = selectedEmployee.resignDate.ToString();

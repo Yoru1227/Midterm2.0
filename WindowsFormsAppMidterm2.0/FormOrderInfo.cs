@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,7 @@ namespace WindowsFormsAppMidterm2._0
         bool isProductIDEmpty = true;
         bool isProductNameEmpty = true;
         bool isAmountEmpty = true;
-        bool isTotalPriceEmpty = true;       
+        // totalPrice ReadOnly       
         bool isEmployeeIDEmpty = true;
         // 沒有備註的textbox
         public FormOrderInfo()
@@ -75,11 +76,6 @@ namespace WindowsFormsAppMidterm2._0
                 isAmountEmpty = true;
             else
                 isAmountEmpty = false;
-
-            if(totalPrice == 0)
-                isTotalPriceEmpty = true;
-            else
-                isTotalPriceEmpty = false;
 
             if (employeeID == 0)
                 isEmployeeIDEmpty = true;
@@ -149,9 +145,11 @@ namespace WindowsFormsAppMidterm2._0
             listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            IQueryable<Order> query = from Order
+            // 查詢當日訂單
+            IQueryable<Order> query = from order
                                       in mydb.Order
-                                      select Order;
+                                      where order.datetime == orderDateTime
+                                      select order;
             // 若orderID非空字串
             if (isOrderIDEmpty == false)
             {
@@ -212,7 +210,15 @@ namespace WindowsFormsAppMidterm2._0
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = order.ID;
-                    item.Text = $"訂單ID:{order.ID},顧客ID:{order.customerID},時間:{order.datetime},商品ID:{order.productID},數量:{order.amount},總價:{order.totalPrice},員工ID:{order.employeeID},備註:{order.comment}";
+                    item.Text = $"訂單ID:{order.ID}," +
+                                $"顧客ID:{order.customerID}," +
+                                $"時間:{order.datetime}," +
+                                $"商品ID:{order.productID}," +
+                                $"數量:{order.amount}," +
+                                $"總價:{order.totalPrice}," +
+                                $"員工ID:{order.employeeID}," +
+                                $"備註:{order.comment}," +
+                                $"{(order.isPaid ? "已" : "未")}付款";
                     listViewDataInfo.Items.Add(item);
                 }
             }
@@ -220,6 +226,7 @@ namespace WindowsFormsAppMidterm2._0
         // 更新order資料表, 依orderID更新
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Order selectedOrder = (from order
@@ -250,10 +257,36 @@ namespace WindowsFormsAppMidterm2._0
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");
             }
+            IQueryable<Order> query = from order
+                    in mydb.Order
+                    select order;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Order order in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = order.ID;
+                    item.Text = $"訂單ID:{order.ID}," +
+                                $"顧客ID:{order.customerID}," +
+                                $"時間:{order.datetime}," +
+                                $"商品ID:{order.productID}," +
+                                $"數量:{order.amount}," +
+                                $"總價:{order.totalPrice}," +
+                                $"員工ID:{order.employeeID}," +
+                                $"備註:{order.comment}," +
+                                $"{(order.isPaid ? "已" : "未")}付款"; 
+                    listViewDataInfo.Items.Add(item);
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以orderID刪除
@@ -278,6 +311,32 @@ namespace WindowsFormsAppMidterm2._0
             else
             {
                 MessageBox.Show("請輸入ID");
+            }
+            // 將listViewDataInfo顯示資料
+            IQueryable<Order> query = from order
+                                      in mydb.Order
+                                      select order;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Order order in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = order.ID;
+                    item.Text = $"訂單ID:{order.ID}," +
+                                $"顧客ID:{order.customerID}," +
+                                $"時間:{order.datetime}," +
+                                $"商品ID:{order.productID}," +
+                                $"數量:{order.amount}," +
+                                $"總價:{order.totalPrice}," +
+                                $"員工ID:{order.employeeID}," +
+                                $"備註:{order.comment}," +
+                                $"{(order.isPaid?"已":"未")}付款";
+                    listViewDataInfo.Items.Add(item);
+                }
             }
         }
 

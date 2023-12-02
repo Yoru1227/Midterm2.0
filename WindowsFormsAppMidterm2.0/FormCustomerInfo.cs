@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -239,6 +240,7 @@ namespace WindowsFormsAppMidterm2._0
                         where customer.password == customerPassword
                         select customer;
             }
+            // 將listViewDataInfo顯示資料
             if(query.Count() == 0)
             {
                 MessageBox.Show("查無資料");
@@ -256,7 +258,8 @@ namespace WindowsFormsAppMidterm2._0
         }
         // 更新customer資料表, 依ID更新
         private void btnUpdate_Click(object sender, EventArgs e)
-        {           
+        {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             Customer selectedCustomer = (from customer
@@ -283,10 +286,29 @@ namespace WindowsFormsAppMidterm2._0
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");
             }
+            // 將listViewDataInfo顯示資料
+            IQueryable<Customer> query = from customer
+                                         in mydb.Customer
+                                         select customer;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Customer customer in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = customer.ID;
+                    item.Text = $"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}";
+                    listViewDataInfo.Items.Add(item);
+                }
+            }
         }
         // 刪除customer資料表資料
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
             // 以ID刪除
@@ -330,6 +352,24 @@ namespace WindowsFormsAppMidterm2._0
             else
             {
                 MessageBox.Show("請輸入ID或名字");
+            }
+            // 將listViewDataInfo顯示資料
+            IQueryable<Customer> query = from customer
+                                         in mydb.Customer
+                                         select customer;
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("查無資料");
+            }
+            else
+            {
+                foreach (Customer customer in query)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = customer.ID;
+                    item.Text = $"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}";
+                    listViewDataInfo.Items.Add(item);
+                }
             }
         }
 
