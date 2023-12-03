@@ -124,7 +124,7 @@ namespace WindowsFormsAppMidterm2._0
             Console.WriteLine(isOnboardingDateEmpty);
             Console.WriteLine(isAccountEmpty);
             Console.WriteLine(isPasswordEmpty);
-            if (isNameEmpty || isSalaryEmpty || isTitleEmpty|| isPermissionEmpty || isOnboardingDateEmpty || isAccountEmpty || isPasswordEmpty)
+            if (isNameEmpty || isSalaryEmpty || isTitleEmpty|| isPermissionEmpty || isAccountEmpty || isPasswordEmpty)
             {
                 MessageBox.Show("所有欄位必須填入");
             }

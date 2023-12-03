@@ -18,7 +18,7 @@ namespace WindowsFormsAppMidterm2._0
         public int productID = 0;
         int price = 0;
         int totalPrice = 0;
-        int amount = 0;
+        int amount = 1;
         // 檢查txtComment是否有文字
         bool textboxHasText = false;
         public FormDetail()
@@ -51,39 +51,21 @@ namespace WindowsFormsAppMidterm2._0
         // 減數量button
         private void btnSubstract_Click(object sender, EventArgs e)
         {
-            bool success = int.TryParse(txtAmount.Text, out amount);
-            if (success)
+            if(amount > 1)
             {
-                if (amount > 1)
-                {
-                    amount--;
-                    totalPrice = amount * price;
-                    txtAmount.Text = amount.ToString();
-                    lblTotalPrice.Text = totalPrice.ToString() + "元";
-                }
-            }
-            else
-            {
-                MessageBox.Show("數量輸入有誤,請重新輸入");
-                txtAmount.Text = "1";
+                amount--;
+                totalPrice = amount * price;
+                lblAmount.Text = amount.ToString();
+                lblTotalPrice.Text = totalPrice.ToString() + "元";
             }
         }
         // 加數量button
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool success = int.TryParse(txtAmount.Text, out amount);
-            if (success)
-            {
-                amount++;
-                totalPrice = amount * price;
-                txtAmount.Text = amount.ToString();
-                lblTotalPrice.Text = totalPrice.ToString() + "元";
-            }
-            else
-            {
-                MessageBox.Show("數量輸入有誤,請重新輸入");
-                txtAmount.Text = "1";
-            }
+            amount++;
+            totalPrice = amount * price;
+            lblAmount.Text = amount.ToString();
+            lblTotalPrice.Text = totalPrice.ToString() + "元";
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)
@@ -93,18 +75,7 @@ namespace WindowsFormsAppMidterm2._0
             order.customerID = GlobalVar.ID;
             order.datetime = DateTime.Now;
             order.productID = productID;
-            // 若txtAmount非數字, 則重新輸入
-            bool success = Int32.TryParse(txtAmount.Text,out amount);
-            if(success == false)
-            {
-                MessageBox.Show("數量輸入有誤,請重新輸入");
-                txtAmount.Text = "1";
-                return;
-            }
-            else
-            {
-                order.amount = amount;
-            }
+            order.amount = amount;
             order.totalPrice = totalPrice;
             order.employeeID = 1;
             // lblComment有文字就輸入資料, 否則輸入空字串

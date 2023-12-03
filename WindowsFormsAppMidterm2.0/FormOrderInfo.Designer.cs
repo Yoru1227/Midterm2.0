@@ -49,7 +49,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,9 +105,9 @@
             this.label3.Location = new System.Drawing.Point(21, 442);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 30);
+            this.label3.Size = new System.Drawing.Size(37, 30);
             this.label3.TabIndex = 45;
-            this.label3.Text = "日期";
+            this.label3.Text = "從";
             // 
             // txtOrderID
             // 
@@ -296,14 +298,35 @@
             this.label7.TabIndex = 59;
             this.label7.Text = "商品名稱";
             // 
-            // dateTimePicker
+            // dtpFromDate
             // 
-            this.dateTimePicker.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dateTimePicker.Location = new System.Drawing.Point(104, 436);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(296, 42);
-            this.dateTimePicker.TabIndex = 8;
+            this.dtpFromDate.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dtpFromDate.Location = new System.Drawing.Point(66, 436);
+            this.dtpFromDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFromDate.Name = "dtpFromDate";
+            this.dtpFromDate.Size = new System.Drawing.Size(406, 42);
+            this.dtpFromDate.TabIndex = 8;
+            // 
+            // dtpToDate
+            // 
+            this.dtpToDate.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dtpToDate.Location = new System.Drawing.Point(525, 436);
+            this.dtpToDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpToDate.Name = "dtpToDate";
+            this.dtpToDate.Size = new System.Drawing.Size(406, 42);
+            this.dtpToDate.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label9.Location = new System.Drawing.Point(480, 442);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 30);
+            this.label9.TabIndex = 61;
+            this.label9.Text = "到";
             // 
             // FormOrderInfo
             // 
@@ -311,7 +334,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(944, 570);
-            this.Controls.Add(this.dateTimePicker);
+            this.Controls.Add(this.dtpToDate);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dtpFromDate);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmployeeID);
@@ -362,6 +387,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.DateTimePicker dtpFromDate;
+        private System.Windows.Forms.DateTimePicker dtpToDate;
+        private System.Windows.Forms.Label label9;
     }
 }

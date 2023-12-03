@@ -77,6 +77,11 @@ namespace WindowsFormsAppMidterm2._0
                 OpenChildForm(new FormEmployeeManage(), sender);
             }           
         }
+        private void btnRevenue_Click(object sender, EventArgs e)
+        {
+            DisableButton();
+            OpenChildForm(new FormRevenue(), sender);
+        }
         // 開啟子表單
         private void OpenChildForm(Form childForm, object btnSender)
         {
@@ -94,6 +99,6 @@ namespace WindowsFormsAppMidterm2._0
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
+        }       
     }
 }

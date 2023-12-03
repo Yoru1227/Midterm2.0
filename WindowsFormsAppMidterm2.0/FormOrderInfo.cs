@@ -15,7 +15,8 @@ namespace WindowsFormsAppMidterm2._0
     {
         int orderID = 0;
         int customerID = 0;
-        DateTime orderDateTime = DateTime.Now;
+        DateTime fromDateTime = DateTime.Now;
+        DateTime toDateTime = DateTime.Now;
         int productID = 0;
         string productName = "";
         int amount = 0;
@@ -42,7 +43,8 @@ namespace WindowsFormsAppMidterm2._0
             Int32.TryParse(txtOrderID.Text, out orderID);
             // 若txtCustomerID沒有字串, 則customerID為0
             Int32.TryParse(txtCustomerID.Text, out customerID);
-            orderDateTime = dateTimePicker.Value;
+            fromDateTime = dtpFromDate.Value;
+            toDateTime = dtpToDate.Value;
             // 若txtProductID沒有字串, 則productID為0
             Int32.TryParse(txtProductID.Text, out productID);
             // 若txtAmountID沒有字串, 則amount為0
@@ -86,7 +88,8 @@ namespace WindowsFormsAppMidterm2._0
             txtProductID.Text = "";
             txtProductName.Text = "";
             txtCustomerID.Text = "";
-            dateTimePicker.Text = DateTime.Now.ToString();
+            dtpFromDate.Text = DateTime.Now.ToString();
+            dtpToDate.Text = DateTime.Now.ToString();
             txtAmount.Text = "";
             txtTotalPrice.Text = "";
             txtEmployeeID.Text = "";           
@@ -95,7 +98,8 @@ namespace WindowsFormsAppMidterm2._0
 
         private void FormOrderInfo_Load(object sender, EventArgs e)
         {
-            dateTimePicker.Text = DateTime.Now.ToString();
+            dtpFromDate.Text = DateTime.Now.ToString();
+            dtpToDate.Text = DateTime.Now.ToString();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -119,24 +123,31 @@ namespace WindowsFormsAppMidterm2._0
             {
                 MessageBox.Show("員工ID必須填入");
             }
-            Order order = new Order();
-            order.productID = productID;
-            order.customerID = customerID;
-            order.employeeID = employeeID;
-            order.amount = amount;
-            order.totalPrice = (from product in mydb.Product where product.ID == productID select product.price).FirstOrDefault() * amount;
-            order.datetime = orderDateTime;           
-            order.comment = "";
-            mydb.Order.InsertOnSubmit(order);
-            mydb.SubmitChanges();
-            Console.WriteLine($"productID : {order.ID}\n" +
-                $"customerID : {order.customerID}\n" +
-                $"employeeID : {order.employeeID}\n" +
-                $"amount : {order.amount}\n" +
-                $"totalPrice : {order.totalPrice}\n" +
-                $"dateTime : {order.datetime}\n" +
-                $"comment : {order.comment}");
-            MessageBox.Show("Insert成功");
+            else if(fromDateTime != toDateTime)
+            {
+                MessageBox.Show("起始日期必須與結束日期相同");
+            }
+            else
+            {
+                Order order = new Order();
+                order.productID = productID;
+                order.customerID = customerID;
+                order.employeeID = employeeID;
+                order.amount = amount;
+                order.totalPrice = (from product in mydb.Product where product.ID == productID select product.price).FirstOrDefault() * amount;
+                order.datetime = fromDateTime;
+                order.comment = "";
+                mydb.Order.InsertOnSubmit(order);
+                mydb.SubmitChanges();
+                Console.WriteLine($"productID : {order.ID}\n" +
+                    $"customerID : {order.customerID}\n" +
+                    $"employeeID : {order.employeeID}\n" +
+                    $"amount : {order.amount}\n" +
+                    $"totalPrice : {order.totalPrice}\n" +
+                    $"dateTime : {order.datetime}\n" +
+                    $"comment : {order.comment}");
+                MessageBox.Show("Insert成功");
+            }        
         }
         // 查詢order資料表
         // 多重欄位查詢
@@ -145,10 +156,10 @@ namespace WindowsFormsAppMidterm2._0
             listViewDataInfo.Clear();
             ReadTextBox();
             RestaurantDataClassesDataContext mydb = new RestaurantDataClassesDataContext();
-            // 查詢當日訂單
+            // 查詢訂單, 日期
             IQueryable<Order> query = from order
                                       in mydb.Order
-                                      where order.datetime == orderDateTime
+                                      where (order.datetime >= fromDateTime) && (order.datetime <= toDateTime)
                                       select order;
             // 若orderID非空字串
             if (isOrderIDEmpty == false)
@@ -196,10 +207,6 @@ namespace WindowsFormsAppMidterm2._0
                         where order.productID == searchProductID
                         select order;
             }
-            query = from order
-                    in query
-                    where order.datetime == orderDateTime
-                    select order;
             if(query.Count() == 0)
             {
                 MessageBox.Show("查無資料");
@@ -252,8 +259,8 @@ namespace WindowsFormsAppMidterm2._0
                     selectedOrder.amount = amount;
                     selectedOrder.totalPrice = amount * (from product in mydb.Product where product.ID == selectedOrder.productID select product.price).FirstOrDefault();
                 }
-                if(selectedOrder.datetime != orderDateTime)
-                    selectedOrder.datetime = orderDateTime;
+                if(selectedOrder.datetime != fromDateTime)
+                    selectedOrder.datetime = fromDateTime;
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");
             }
@@ -359,7 +366,7 @@ namespace WindowsFormsAppMidterm2._0
                 txtAmount.Text = selectedOrder.amount.ToString();
                 txtTotalPrice.Text = selectedOrder.totalPrice.ToString();
                 txtProductName.Text = (from product in mydb.Product where product.ID == selectedOrder.productID select product.name).FirstOrDefault();
-                dateTimePicker.Value = selectedOrder.datetime;
+                dtpFromDate.Value = selectedOrder.datetime;
             }
         }
     }

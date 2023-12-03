@@ -50,6 +50,8 @@
             this.comboGender = new System.Windows.Forms.ComboBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtIsBanned = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,7 +242,7 @@
             this.txtAccount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(373, 39);
-            this.txtAccount.TabIndex = 7;
+            this.txtAccount.TabIndex = 8;
             // 
             // label6
             // 
@@ -261,7 +263,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(372, 39);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 9;
             // 
             // label7
             // 
@@ -294,7 +296,7 @@
             this.txtAddress.Location = new System.Drawing.Point(97, 382);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(834, 39);
+            this.txtAddress.Size = new System.Drawing.Size(645, 39);
             this.txtAddress.TabIndex = 6;
             // 
             // label8
@@ -309,12 +311,35 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "地址";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label9.Location = new System.Drawing.Point(750, 389);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 30);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "停權";
+            // 
+            // txtIsBanned
+            // 
+            this.txtIsBanned.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtIsBanned.Location = new System.Drawing.Point(819, 382);
+            this.txtIsBanned.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIsBanned.Name = "txtIsBanned";
+            this.txtIsBanned.Size = new System.Drawing.Size(111, 39);
+            this.txtIsBanned.TabIndex = 7;
+            // 
             // FormCustomerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(944, 570);
+            this.Controls.Add(this.txtIsBanned);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboGender);
@@ -367,5 +392,7 @@
         private System.Windows.Forms.ComboBox comboGender;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtIsBanned;
     }
 }

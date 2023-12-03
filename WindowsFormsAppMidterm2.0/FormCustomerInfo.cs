@@ -21,6 +21,7 @@ namespace WindowsFormsAppMidterm2._0
         string customerAddress = "";
         string customerAccount = "";
         string customerPassword = "";
+        bool isBanned = false;
         bool isIDEmpty = true;
         bool isNameEmpty = true;
         bool isGenderEmpty = true;
@@ -29,6 +30,8 @@ namespace WindowsFormsAppMidterm2._0
         bool isAddressEmpty = true;
         bool isAccountEmpty = true;
         bool isPasswordEmpty = true;
+        bool isIsBannedParseSuccess = false;
+
         public FormCustomerInfo()
         {
             InitializeComponent();
@@ -57,6 +60,8 @@ namespace WindowsFormsAppMidterm2._0
             customerAddress = txtAddress.Text;
             customerAccount = txtAccount.Text;
             customerPassword = txtPassword.Text;
+            // 若txtIsBanned輸入失敗, 則isBanned為false
+            isIsBannedParseSuccess = bool.TryParse(txtIsBanned.Text, out isBanned);
             // 檢查各textbox是否有輸入字串
             if(customerID == 0)
                 isIDEmpty = true;    
@@ -106,6 +111,7 @@ namespace WindowsFormsAppMidterm2._0
             txtAddress.Text = "";
             txtAccount.Text = "";
             txtPassword.Text = "";
+            txtIsBanned.Text = "";
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -247,6 +253,14 @@ namespace WindowsFormsAppMidterm2._0
                         where customer.password == customerPassword
                         select customer;
             }
+            // 若停權輸入成功
+            if(isIsBannedParseSuccess == true)
+            {
+                query = from customer
+                        in query
+                        where customer.isBanned == isBanned
+                        select customer;
+            }
             // 將listViewDataInfo顯示資料
             if(query.Count() == 0)
             {
@@ -258,7 +272,7 @@ namespace WindowsFormsAppMidterm2._0
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = customer.ID;
-                    item.Text = $"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password}";
+                    item.Text = $"ID:{customer.ID},姓名:{customer.name},電話:{customer.phone},email:{customer.email},地址:{customer.address},帳號:{customer.account},密碼:{customer.password},停權:{customer.isBanned}";
                     listViewDataInfo.Items.Add(item);
                 }
             }           
@@ -290,6 +304,8 @@ namespace WindowsFormsAppMidterm2._0
                     selectedCustomer.account = customerAccount;
                 if(isPasswordEmpty == false)
                     selectedCustomer.password = customerPassword;
+                if(isIsBannedParseSuccess == true)
+                    selectedCustomer.isBanned = isBanned;
                 mydb.SubmitChanges();
                 MessageBox.Show("資料更新成功");
             }
@@ -328,6 +344,16 @@ namespace WindowsFormsAppMidterm2._0
                                              .FirstOrDefault();
                 if (selectedCustomer != null)
                 {
+                    // 將顧客的所有訂單刪除
+                    IQueryable<Order> PaidOrders = from order
+                                                   in mydb.Order
+                                                   where order.customerID == selectedCustomer.ID
+                                                   select order;
+                    foreach(Order order in PaidOrders)
+                    {
+                        mydb.Order.DeleteOnSubmit(order);
+                        mydb.SubmitChanges();
+                    }
                     mydb.Customer.DeleteOnSubmit(selectedCustomer);
                     mydb.SubmitChanges();
                     MessageBox.Show("資料刪除成功");
@@ -336,29 +362,10 @@ namespace WindowsFormsAppMidterm2._0
                 {
                     MessageBox.Show("查無此ID");
                 }
-            }
-            // 以名字刪除
-            else if(isNameEmpty == false)
-            {
-                Customer selectedCustomer = (from customer
-                                             in mydb.Customer
-                                             where customer.name == customerName
-                                             select customer)
-                                             .FirstOrDefault();
-                if (selectedCustomer != null)
-                {
-                    mydb.Customer.DeleteOnSubmit(selectedCustomer);
-                    mydb.SubmitChanges();
-                    MessageBox.Show("資料刪除成功");
-                }
-                else
-                {
-                    MessageBox.Show("查無此姓名");
-                }
-            }
+            }           
             else
             {
-                MessageBox.Show("請輸入ID或名字");
+                MessageBox.Show("請輸入ID");
             }
             // 將listViewDataInfo顯示資料
             IQueryable<Customer> query = from customer
@@ -400,6 +407,7 @@ namespace WindowsFormsAppMidterm2._0
                 txtAddress.Text = selectedCustomer.address;
                 txtAccount.Text = selectedCustomer.account;
                 txtPassword.Text = selectedCustomer.password;
+                txtIsBanned.Text = selectedCustomer.isBanned.ToString();
             }
         }
     }

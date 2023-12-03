@@ -36,12 +36,14 @@
             this.lblLoginInfo = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.btnRevenue = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnRevenue);
             this.panelMenu.Controls.Add(this.btnSystemManage);
             this.panelMenu.Controls.Add(this.btnOrderManage);
             this.panelMenu.Controls.Add(this.btnProductInfoManage);
@@ -50,7 +52,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(249, 654);
             this.panelMenu.TabIndex = 0;
@@ -62,7 +64,7 @@
             this.btnSystemManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSystemManage.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSystemManage.Location = new System.Drawing.Point(0, 298);
-            this.btnSystemManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSystemManage.Margin = new System.Windows.Forms.Padding(4);
             this.btnSystemManage.Name = "btnSystemManage";
             this.btnSystemManage.Size = new System.Drawing.Size(249, 76);
             this.btnSystemManage.TabIndex = 4;
@@ -77,7 +79,7 @@
             this.btnOrderManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrderManage.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnOrderManage.Location = new System.Drawing.Point(0, 222);
-            this.btnOrderManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrderManage.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrderManage.Name = "btnOrderManage";
             this.btnOrderManage.Size = new System.Drawing.Size(249, 76);
             this.btnOrderManage.TabIndex = 3;
@@ -92,7 +94,7 @@
             this.btnProductInfoManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductInfoManage.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProductInfoManage.Location = new System.Drawing.Point(0, 146);
-            this.btnProductInfoManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductInfoManage.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductInfoManage.Name = "btnProductInfoManage";
             this.btnProductInfoManage.Size = new System.Drawing.Size(249, 76);
             this.btnProductInfoManage.TabIndex = 2;
@@ -107,7 +109,7 @@
             this.btnMemberInfoManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMemberInfoManage.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMemberInfoManage.Location = new System.Drawing.Point(0, 70);
-            this.btnMemberInfoManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMemberInfoManage.Margin = new System.Windows.Forms.Padding(4);
             this.btnMemberInfoManage.Name = "btnMemberInfoManage";
             this.btnMemberInfoManage.Size = new System.Drawing.Size(249, 76);
             this.btnMemberInfoManage.TabIndex = 1;
@@ -146,10 +148,25 @@
             // 
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(249, 70);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(943, 584);
             this.panelChildForm.TabIndex = 7;
+            // 
+            // btnRevenue
+            // 
+            this.btnRevenue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRevenue.FlatAppearance.BorderSize = 0;
+            this.btnRevenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevenue.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRevenue.Location = new System.Drawing.Point(0, 374);
+            this.btnRevenue.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRevenue.Name = "btnRevenue";
+            this.btnRevenue.Size = new System.Drawing.Size(249, 76);
+            this.btnRevenue.TabIndex = 5;
+            this.btnRevenue.Text = "營業額計算";
+            this.btnRevenue.UseVisualStyleBackColor = true;
+            this.btnRevenue.Click += new System.EventHandler(this.btnRevenue_Click);
             // 
             // FormManage
             // 
@@ -160,7 +177,7 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormManage";
             this.Text = "FormManage";
             this.Load += new System.EventHandler(this.FormManage_Load);
@@ -179,5 +196,6 @@
         private System.Windows.Forms.Button btnMemberInfoManage;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Button btnRevenue;
     }
 }

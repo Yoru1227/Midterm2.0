@@ -129,7 +129,7 @@ namespace WindowsFormsAppMidterm2._0
                         where product.category == productCategory
                         select product;
             }
-            // 若存貨非空字串
+            // 若存貨輸入成功
             if(isIsInStockParseSuccess == true)
             {
                 query = from product
@@ -213,6 +213,17 @@ namespace WindowsFormsAppMidterm2._0
                                            .FirstOrDefault();
                 if(selectedProduct != null)
                 {
+                    // 先刪除與產品有關的訂單
+                    IQueryable<Order> orders = from order
+                                               in mydb.Order
+                                               where order.productID == selectedProduct.ID
+                                               select order;
+                    foreach (Order order in orders)
+                    {
+                        mydb.Order.DeleteOnSubmit(order);
+                        mydb.SubmitChanges();
+                    }
+                    // 再刪除產品
                     mydb.Product.DeleteOnSubmit(selectedProduct);
                     mydb.SubmitChanges();
                     MessageBox.Show("資料刪除成功");
@@ -232,6 +243,17 @@ namespace WindowsFormsAppMidterm2._0
                                            .FirstOrDefault();
                 if(selectedProduct != null)
                 {
+                    // 先刪除與產品有關的訂單
+                    IQueryable<Order> orders = from order
+                                               in mydb.Order
+                                               where order.productID == selectedProduct.ID
+                                               select order;
+                    foreach(Order order in orders)
+                    {
+                        mydb.Order.DeleteOnSubmit(order);
+                        mydb.SubmitChanges();
+                    }
+                    // 再刪除產品
                     mydb.Product.DeleteOnSubmit(selectedProduct);
                     mydb.SubmitChanges();
                     MessageBox.Show("刪除資料成功");
